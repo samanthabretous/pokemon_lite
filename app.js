@@ -20,8 +20,21 @@ Pokemon.prototype.learnAttackSkill = function (objAttachSkill) {
 }
 
 Pokemon.prototype.attack = function (skillKey, pokemon) {
-	if(this.magic <= this.skills){}
+	if(this.magic < this.skills[skillKey].magicNeeded){
+		console.log("not enough Magic!!!!");
+	}else {
+		pokemon.health -= this.skills[skillKey].damage;
+		this.magic.currentMagic -= this.skills[skillKey].magicNeeded
+		console.log(this.name + " launched skill " + skillKey + " successfully!");
+		console.log(pokemon.name + " recived " + this.skills[skillKey].damage +" damage");
+		//pikachu launched skill 'lightning' successfully!
+		//bulbasaur got 40 damage
+		if(pokemon.health < 0){
+		pokemon.health = 0;
+		}
+	}
 }
+
 
 Pokemon.prototype.showStatus = function(){
   console.log(this.health + this.magic);
@@ -40,9 +53,11 @@ function reset() {
 
 }
 
-// var pikachu = new Pokemon("pikachu", 120, 80);
-// var poisonSeed = new AttackSkill ("poison seed", 20, 20);
-// var lightning = new AttackSkill("lightning", 40, 30);
-// pikachu.learnAttackSkill(poisonSeed)
-// pikachu.learnAttackSkill(lightning)
-// console.log(pikachu.skills.lightning);
+var pikachu = new Pokemon("pikachu", 120, 80);
+var bulbasaur = new Pokemon("bulbasaur", 95, 105);
+var poisonSeed = new AttackSkill ("poison seed", 20, 20);
+var lightning = new AttackSkill("lightning", 40, 30);
+pikachu.learnAttackSkill(poisonSeed);
+pikachu.learnAttackSkill(lightning);
+// console.log(pikachu);
+pikachu.attack("lightning", bulbasaur);
