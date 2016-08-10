@@ -19,11 +19,11 @@ Pokemon.prototype.learnAttackSkill = function (objAttachSkill) {
 }
 
 Pokemon.prototype.attack = function (skillKey, pokemon) {
-
+	if(this.magic <= this.skills){}
 }
 
 Pokemon.prototype.showStatus = function(){
-  console.log(this.health + this.magic)
+  console.log(this.health + this.magic);
 }
 
 Pokemon.prototype.getMagic = function() {
