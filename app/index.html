@@ -2,9 +2,9 @@
 <html>
 <head>
 	<title>Pokemon</title>
-  <link rel="stylesheet" type="text/css" href="main.css">
+  <link rel="stylesheet" type="text/css" href="css/main.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-  <script src="app.js" defer></script>
+  <script src="js/app.js" defer></script>
 </head>
 <body>
 
@@ -34,27 +34,37 @@
     <!-- *********** PLAYER TWO *********** -->
     <div class="playerTwo">
       <div class="playerTwoImg">
-        <img src="">
+        <img src="http://www.freeiconspng.com/uploads/pokemon-png-22.png">
       </div>
       <div class="playerTwoInfo">
         <div class="playerTwostatus">
-          <h4> Player 1</h4> 
+          <h4 class="playerTwoName"> Player 1</h4> 
           <p>hit points</p>
-        </div> <!-- .playerOnestatus -->
-        <div> 
-          <div>HP</div>
-          <div class="statusbarTwoOuter"> Status bar
+        </div> <!-- .playerTwostatus -->
+        <div class="statusTwo"> 
+          <div class="healthPoints">HP</div>
+          <div class="statusbarTwoOuter"> 
             <div class="statusBarTwo"></div>
           </div>
-        </div>
+          <p>35/179</p>
+          <div class="statusbarTwoOuterBottom"> 
+            <div class="statusBarTwoBottom"></div>
+          </div>
+        </div> <!-- .statusTwo -->
       </div> <!-- .playerTwoInfo -->
     </div><!-- playerTwo -->
 
   </div><!-- gameScreen -->
   <div class="gameOptions">
-    <h4>Fight</h4>
-    <h4>Pack</h4>
-    <h4>Run</h4>
+    <div>
+      <div class="options">
+        <div>
+          <button>Fight</button>
+          <button>Pack</button>
+          <button>Run</button>
+        </div>
+      </div>
+    </div>
   </div>
 
 </body>

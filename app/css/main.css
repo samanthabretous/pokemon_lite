@@ -1,0 +1,188 @@
+@font-face {
+  font-family: "squaredFont";
+  src: url("/fonts/player_1_up/player1up.ttf");
+}
+* {
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  font-family: squaredFont;
+  font-size: 2.5rem;
+}
+
+.gameScreen {
+  width: 100%;
+  height: 75%;
+  padding: 0 5%;
+}
+
+.playerOne {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  height: 50%;
+}
+
+.playerInfo {
+  display: none;
+  background-color: yellow;
+}
+
+.statusBarOne {
+  width: 50px;
+}
+
+.playerOneImg {
+  background-color: red;
+}
+
+/***********PLAYER TWO************/
+/***********PLAYER TWO************/
+.playerTwo {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  height: 50%;
+}
+.playerTwo .playerTwoImg {
+  width: 40%;
+}
+.playerTwo .playerTwoImg img {
+  width: 90%;
+  height: auto;
+}
+.playerTwo .playerTwoInfo {
+  width: 60%;
+  position: relative;
+}
+.playerTwo .playerTwoInfo .playerTwostatus {
+  padding-left: 7%;
+}
+.playerTwo .playerTwoInfo .playerTwostatus .playerTwoName {
+  margin: 0;
+}
+.playerTwo .playerTwoInfo .playerTwostatus p {
+  margin: 0;
+  padding-left: 11%;
+}
+.playerTwo .playerTwoInfo .statusTwo {
+  background-image: url("/images/player2_piece.png") !important;
+  background-repeat: no-repeat;
+  background-size: 90%;
+  background-position: 95% 65%;
+  width: 100%;
+  height: 50%;
+  position: absolute;
+  bottom: 3%;
+}
+.playerTwo .playerTwoInfo .statusTwo .healthPoints {
+  background: black;
+  opacity: .9;
+  color: white;
+  display: inline-block;
+  margin-left: 15%;
+  position: relative;
+  top: 5%;
+}
+@media screen and (max-width: 1500px) {
+  .playerTwo .playerTwoInfo .statusTwo .healthPoints {
+    top: 2%;
+  }
+}
+.playerTwo .playerTwoInfo .statusTwo .statusbarTwoOuter {
+  position: absolute;
+  top: -1%;
+  background: white;
+  width: 60%;
+  height: 40px;
+  color: yellow;
+  display: inline-block;
+}
+@media screen and (max-width: 1500px) {
+  .playerTwo .playerTwoInfo .statusTwo .statusbarTwoOuter {
+    top: -4%;
+  }
+}
+.playerTwo .playerTwoInfo .statusTwo .statusbarTwoOuter .statusBarTwo {
+  margin-top: 4%;
+  background: red;
+  width: 95%;
+  height: 20px;
+}
+.playerTwo .playerTwoInfo .statusTwo p {
+  text-align: right;
+  margin-right: 10%;
+  position: relative;
+  bottom: 30%;
+  z-index: 100;
+}
+.playerTwo .playerTwoInfo .statusTwo .statusbarTwoOuterBottom {
+  position: absolute;
+  bottom: 9%;
+  right: 10%;
+  background: white;
+  width: 60%;
+  height: 40px;
+  color: yellow;
+  display: inline-block;
+}
+.playerTwo .playerTwoInfo .statusTwo .statusbarTwoOuterBottom .statusBarTwoBottom {
+  float: right;
+  margin-top: 4%;
+  background: lightblue;
+  width: 95%;
+  height: 20px;
+}
+
+.gameOptions {
+  width: 100%;
+  height: 25%;
+  background: white;
+}
+.gameOptions div {
+  height: 90%;
+  margin: 1%;
+  border: 8px double black;
+  border-radius: 25px;
+  background: white;
+}
+.gameOptions .options {
+  height: 25%;
+  width: 60%;
+  float: right;
+  border: 8px double black;
+  border-radius: 25px;
+  position: absolute;
+  right: 0;
+  bottom: -2%;
+}
+.gameOptions .options div {
+  border: none;
+  padding: 1%;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+}
+.gameOptions .options div button {
+  font-size: 2.5rem;
+  font-family: squaredFont;
+  background: none;
+}

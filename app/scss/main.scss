@@ -1,0 +1,233 @@
+// ***********************************
+// IMPORTS
+// Import susy, breakpoint, resets and grids
+// ***********************************
+@import '../../bower_components/susy/sass/susy';
+@import '../../bower_components/breakpoint-sass/stylesheets/_breakpoint';
+
+// // ***********************************
+// // FONTS
+// // ***********************************
+
+@font-face{
+  font-family: "squaredFont";
+  src: url('/fonts/player_1_up/player1up.ttf')
+}
+
+// // ***********************************
+// // STYLES
+// // ***********************************
+
+*{
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  font-family: squaredFont;
+  font-size: 2.5rem;
+}
+
+.gameScreen{
+  width: 100%;
+  height: 75%;
+  padding: 0 5%;
+}
+
+.playerOne{
+  display: flex;
+  flex-direction: row;
+  height: 50%;
+
+}
+
+.playerInfo{
+  display: none;
+  background-color: yellow;
+}
+
+.playerOnestatus {
+}
+
+.statusbarOneOuter{
+}
+
+.statusBarOne{
+  width:50px;
+}
+
+.playerOneImg{
+  background-color: red;
+
+}
+
+/***********PLAYER TWO************/
+/***********PLAYER TWO************/
+
+.playerTwo{
+  display: flex;
+  flex-direction: row;
+  height: 50%;
+
+  .playerTwoImg{
+    width: 40%;
+
+    img{
+      width: 90%;
+      height: auto;
+    }
+
+  }//.playerTwoImg
+
+  .playerTwoInfo{
+    width: 60%;
+    position: relative;
+  
+    .playerTwostatus {
+        padding-left: 7%;
+      
+      .playerTwoName{
+        margin: 0;
+      }//.playerTwoName
+
+      p{
+        margin: 0;
+        padding-left: 11%;
+      }
+    }//.playerTwostatus 
+
+    .statusTwo{
+      background-image: url('/images/player2_piece.png') !important; 
+      background-repeat: no-repeat;
+      background-size: 90%;
+      background-position: 95% 65%;
+      width: 100%;
+      height: 50%;
+      position: absolute;
+      bottom: 3%;
+
+      .healthPoints{
+        background:black;
+        opacity: .9;
+        color:white;
+        display: inline-block;
+        margin-left: 15%;
+        position: relative;
+        top: 5%;
+        @media screen and (max-width: 1500px){
+          top: 2%;
+        }  
+      
+      }//.healthPoints
+
+      .statusbarTwoOuter{
+        position: absolute;
+        top: -1%;
+        background: white;
+        width: 60%;
+        height: 40px; 
+        color:yellow;
+        display: inline-block; 
+
+        @media screen and (max-width: 1500px){
+          top: -4%;
+        }      
+
+        .statusBarTwo{
+          margin-top: 4%;
+          background: red;
+          width: 95%;
+          height:20px;
+
+        }//.statusBarTwo
+      
+      } //.statusbarTwoOuter
+    
+      p{
+        text-align: right;
+        margin-right: 10%;
+        position: relative;
+        bottom: 30%;
+        z-index: 100;
+      }
+
+      .statusbarTwoOuterBottom{
+        position: absolute;
+        bottom: 9%;
+        right: 10%;
+        background: white;
+        width: 60%;
+        height: 40px; 
+        color:yellow;
+        display: inline-block;     
+
+        .statusBarTwoBottom{
+          float: right;
+          margin-top: 4%;
+          background: lightblue;
+          width: 95%;
+          height:20px;
+
+        }//.statusBarTwoBottom
+      
+      } //.statusbarTwoOuterBottom
+
+    } //statusTwo
+  }//.playerTwoInfo
+}//.playerTwo
+
+
+.gameOptions{
+  width: 100%;
+  height: 25%;
+  background: white;
+  
+  div{
+    height: 90%;
+    margin: 1%;
+    border: 8px double black;
+    border-radius: 25px;
+    background: white;
+  }
+
+  .options{
+    height: 25%;
+    width: 60%;
+    float: right;
+    border: 8px double black;
+    border-radius: 25px;
+    position:absolute;
+    right: 0;
+    bottom: -2%;
+
+    div {
+      border: none;
+      padding: 1%;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      button{
+        font-size: 2.5rem;
+        font-family: squaredFont;
+        background: none;
+      }
+
+      select{
+
+      }
+    }
+  }
+
+
+}
