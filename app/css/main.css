@@ -2,6 +2,10 @@
   font-family: "squaredFont";
   src: url("/fonts/player_1_up/player1up.ttf");
 }
+@font-face {
+  font-family: "squaredFontBold";
+  src: url("/fonts/player_1_up/player1upboldital.ttf");
+}
 * {
   box-sizing: border-box;
 }
@@ -23,166 +27,188 @@ body {
   font-size: 2.5rem;
 }
 
-.gameScreen {
-  width: 100%;
-  height: 75%;
-  padding: 0 5%;
+.mainGame {
+  width: 900px;
+  height: 600px;
+  margin: 0 auto;
+  border: 1px solid red;
+  /***********Game options************/
+  /***********Game options************/
 }
-
-.playerOne {
+.mainGame .gameScreen {
+  width: 900px;
+  height: 450px;
+  /***********PLAYER ONE************/
+  /***********PLAYER ONE************/
+  /***********PLAYER TWO************/
+  /***********PLAYER TWO************/
+}
+.mainGame .gameScreen .playerOne {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-direction: row;
       flex-direction: row;
-  height: 50%;
+  width: 900px;
+  height: 225px;
 }
-
-.playerInfo {
-  display: none;
+.mainGame .gameScreen .playerInfo {
   background-color: yellow;
+  display: none;
 }
-
-.statusBarOne {
+.mainGame .gameScreen .statusBarOne {
   width: 50px;
 }
-
-.playerOneImg {
+.mainGame .gameScreen .playerOneImg {
   background-color: red;
 }
-
-/***********PLAYER TWO************/
-/***********PLAYER TWO************/
-.playerTwo {
+.mainGame .gameScreen .playerTwo {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-direction: row;
       flex-direction: row;
-  height: 50%;
+  width: 900px;
+  height: 225px;
 }
-.playerTwo .playerTwoImg {
-  width: 40%;
+.mainGame .gameScreen .playerTwo .playerTwoImg {
+  min-width: 360px;
+  height: 225px;
 }
-.playerTwo .playerTwoImg img {
-  width: 90%;
+.mainGame .gameScreen .playerTwo .playerTwoImg img {
+  width: 360px;
   height: auto;
-}
-.playerTwo .playerTwoInfo {
-  width: 60%;
+  z-index: -1;
   position: relative;
+  left: 15px;
+  top: -30px;
 }
-.playerTwo .playerTwoInfo .playerTwostatus {
-  padding-left: 7%;
+.mainGame .gameScreen .playerTwo .playerTwoInfo {
+  width: 5400px;
+  height: 225px;
+  /***********PLAYER TWO STATUS BAR ************/
+  /***********PLAYER TWO STATUS BAR ************/
 }
-.playerTwo .playerTwoInfo .playerTwostatus .playerTwoName {
+.mainGame .gameScreen .playerTwo .playerTwoInfo .playerTwostatus {
+  padding-left: 54px;
+  height: 112.5px;
+}
+.mainGame .gameScreen .playerTwo .playerTwoInfo .playerTwostatus .playerTwoName {
   margin: 0;
+  font-size: 3rem;
+  font-family: squaredFontBold;
 }
-.playerTwo .playerTwoInfo .playerTwostatus p {
+.mainGame .gameScreen .playerTwo .playerTwoInfo .playerTwostatus p {
   margin: 0;
-  padding-left: 11%;
+  float: right;
+  padding-right: 30px;
 }
-.playerTwo .playerTwoInfo .statusTwo {
-  background-image: url("/images/player2_piece.png") !important;
+.mainGame .gameScreen .playerTwo .playerTwoInfo .statusTwo {
+  background-image: url("/images/player2_piece.png");
   background-repeat: no-repeat;
-  background-size: 90%;
   background-position: 95% 65%;
-  width: 100%;
-  height: 50%;
-  position: absolute;
-  bottom: 3%;
+  position: relative;
+  width: 540px;
+  height: 112.5px;
+  bottom: 15px;
+  right: 25px;
 }
-.playerTwo .playerTwoInfo .statusTwo .healthPoints {
+.mainGame .gameScreen .playerTwo .playerTwoInfo .statusTwo .healthPoints {
   background: black;
-  opacity: .9;
+  font-family: squaredFontBold;
+  font-size: 1.75rem;
   color: white;
   display: inline-block;
-  margin-left: 15%;
-  position: relative;
-  top: 5%;
-}
-@media screen and (max-width: 1500px) {
-  .playerTwo .playerTwoInfo .statusTwo .healthPoints {
-    top: 2%;
-  }
-}
-.playerTwo .playerTwoInfo .statusTwo .statusbarTwoOuter {
-  position: absolute;
-  top: -1%;
-  background: white;
-  width: 60%;
   height: 40px;
-  color: yellow;
-  display: inline-block;
+  margin-left: 50px;
+  padding: 6px 15px 0 4px;
+  position: relative;
+  top: -15px;
 }
-@media screen and (max-width: 1500px) {
-  .playerTwo .playerTwoInfo .statusTwo .statusbarTwoOuter {
-    top: -4%;
-  }
-}
-.playerTwo .playerTwoInfo .statusTwo .statusbarTwoOuter .statusBarTwo {
-  margin-top: 4%;
-  background: red;
-  width: 95%;
+.mainGame .gameScreen .playerTwo .playerTwoInfo .statusTwo .statusbarTwoOuter {
+  position: absolute;
+  background: white;
+  width: 350px;
   height: 20px;
-}
-.playerTwo .playerTwoInfo .statusTwo p {
-  text-align: right;
-  margin-right: 10%;
-  position: relative;
-  bottom: 30%;
-  z-index: 100;
-}
-.playerTwo .playerTwoInfo .statusTwo .statusbarTwoOuterBottom {
-  position: absolute;
-  bottom: 9%;
-  right: 10%;
-  background: white;
-  width: 60%;
-  height: 40px;
   color: yellow;
   display: inline-block;
 }
-.playerTwo .playerTwoInfo .statusTwo .statusbarTwoOuterBottom .statusBarTwoBottom {
-  float: right;
+.mainGame .gameScreen .playerTwo .playerTwoInfo .statusTwo .statusbarTwoOuter .statusBarTwo {
+  background: red;
+  width: 335px;
+  height: 15px;
+}
+.mainGame .gameScreen .playerTwo .playerTwoInfo .statusTwo p {
+  text-align: right;
+  position: absolute;
+  z-index: 100;
+  right: 70px;
+  top: 0px;
+}
+.mainGame .gameScreen .playerTwo .playerTwoInfo .statusTwo .statusbarTwoOuterBottom {
+  position: absolute;
+  bottom: 8px;
+  right: 60px;
+  background: white;
+  width: 400px;
+  height: 40px;
+  display: inline-block;
+}
+.mainGame .gameScreen .playerTwo .playerTwoInfo .statusTwo .statusbarTwoOuterBottom .statusBarTwoBottom {
+  position: absolute;
+  bottom: 0;
+  right: 0;
   margin-top: 4%;
   background: lightblue;
-  width: 95%;
-  height: 20px;
+  width: 385px;
+  height: 9px;
 }
-
-.gameOptions {
-  width: 100%;
-  height: 25%;
+.mainGame .gameBottom {
+  width: 900px;
+  height: 150px;
   background: white;
+  z-index: 10;
+  position: relative;
 }
-.gameOptions div {
-  height: 90%;
-  margin: 1%;
-  border: 8px double black;
-  border-radius: 25px;
-  background: white;
-}
-.gameOptions .options {
-  height: 25%;
-  width: 60%;
-  float: right;
-  border: 8px double black;
-  border-radius: 25px;
+.mainGame .gameBottom .mainOptions {
   position: absolute;
-  right: 0;
-  bottom: -2%;
+  top: 7px;
+  right: 5px;
+  left: 5px;
+  width: 890px;
+  height: 145px;
+  border: 8px inset;
+  border-radius: 25px;
+  background: white;
+  z-index: -2;
 }
-.gameOptions .options div {
-  border: none;
-  padding: 1%;
+.mainGame .gameBottom .mainOptions .options::before {
+  position: absolute;
+  left: -18px;
+  top: -5px;
+  content: "";
+  background: white;
+  min-width: 10px;
+  border: 10px white solid;
+  border-radius: 25px;
+  height: 132px;
+  z-index: -1;
+}
+.mainGame .gameBottom .mainOptions .options {
+  height: 160px;
+  width: 540px;
+  border: 8px inset;
+  border-radius: 25px;
+  background: white;
+  position: absolute;
+  right: -7px;
+  top: -15px;
+  padding: 10px 0;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-align: center;
-      align-items: center;
-  -ms-flex-pack: justify;
-      justify-content: space-between;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
-.gameOptions .options div button {
-  font-size: 2.5rem;
-  font-family: squaredFont;
-  background: none;
+.mainGame .gameBottom .mainOptions .options h6 {
+  margin: 0;
+  font-size: 3rem;
+  padding: 3px;
 }

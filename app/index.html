@@ -7,7 +7,7 @@
   <script src="js/app.js" defer></script>
 </head>
 <body>
-
+<div class ="mainGame">
   <div class="gameScreen">
     <!-- *********** PLAYER ONE *********** -->
     <!-- *********** PLAYER ONE *********** -->
@@ -42,7 +42,7 @@
           <p>hit points</p>
         </div> <!-- .playerTwostatus -->
         <div class="statusTwo"> 
-          <div class="healthPoints">HP</div>
+          <div class="healthPoints">HP:</div>
           <div class="statusbarTwoOuter"> 
             <div class="statusBarTwo"></div>
           </div>
@@ -55,17 +55,20 @@
     </div><!-- playerTwo -->
 
   </div><!-- gameScreen -->
-  <div class="gameOptions">
-    <div>
+  <div class="gameBottom">
+    <div class="mainOptions">
       <div class="options">
-        <div>
-          <button>Fight</button>
-          <button>Pack</button>
-          <button>Run</button>
+        <div class="attackOptions">
+          <h6>Fight</h6>
+          <h6>Pack</h6>
         </div>
-      </div>
-    </div>
+        <div class="realOptions">
+          <h6>Run</h6>
+          <h6>Cool</h6>
+        </div>
+      </div><!-- .options -->
+    </div><!-- .mainOptions -->
   </div>
-
+</div>
 </body>
 </html>

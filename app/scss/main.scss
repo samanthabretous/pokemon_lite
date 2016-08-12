@@ -14,6 +14,22 @@
   src: url('/fonts/player_1_up/player1up.ttf')
 }
 
+@font-face{
+  font-family: "squaredFontBold";
+  src: url('/fonts/player_1_up/player1upboldital.ttf')
+}
+
+
+// // ***********************************
+// // Variables
+// // ***********************************
+
+$width: 900px;
+$height: 600px;
+$playerHeight: $height*.75/2;
+$optionHeight: $height*.25;
+$statusWidth: $width*6;
+
 // // ***********************************
 // // STYLES
 // // ***********************************
@@ -36,198 +52,236 @@ body{
   font-family: squaredFont;
   font-size: 2.5rem;
 }
+.mainGame{
+  width: $width;
+  height: $height;
+  margin: 0 auto;
+  border: 1px solid red;
 
-.gameScreen{
-  width: 100%;
-  height: 75%;
-  padding: 0 5%;
-}
+  .gameScreen{
+    width: $width;
+    height: $height*.75;
 
-.playerOne{
-  display: flex;
-  flex-direction: row;
-  height: 50%;
+    /***********PLAYER ONE************/
+    /***********PLAYER ONE************/
 
-}
-
-.playerInfo{
-  display: none;
-  background-color: yellow;
-}
-
-.playerOnestatus {
-}
-
-.statusbarOneOuter{
-}
-
-.statusBarOne{
-  width:50px;
-}
-
-.playerOneImg{
-  background-color: red;
-
-}
-
-/***********PLAYER TWO************/
-/***********PLAYER TWO************/
-
-.playerTwo{
-  display: flex;
-  flex-direction: row;
-  height: 50%;
-
-  .playerTwoImg{
-    width: 40%;
-
-    img{
-      width: 90%;
-      height: auto;
-    }
-
-  }//.playerTwoImg
-
-  .playerTwoInfo{
-    width: 60%;
-    position: relative;
-  
-    .playerTwostatus {
-        padding-left: 7%;
-      
-      .playerTwoName{
-        margin: 0;
-      }//.playerTwoName
-
-      p{
-        margin: 0;
-        padding-left: 11%;
-      }
-    }//.playerTwostatus 
-
-    .statusTwo{
-      background-image: url('/images/player2_piece.png') !important; 
-      background-repeat: no-repeat;
-      background-size: 90%;
-      background-position: 95% 65%;
-      width: 100%;
-      height: 50%;
-      position: absolute;
-      bottom: 3%;
-
-      .healthPoints{
-        background:black;
-        opacity: .9;
-        color:white;
-        display: inline-block;
-        margin-left: 15%;
-        position: relative;
-        top: 5%;
-        @media screen and (max-width: 1500px){
-          top: 2%;
-        }  
-      
-      }//.healthPoints
-
-      .statusbarTwoOuter{
-        position: absolute;
-        top: -1%;
-        background: white;
-        width: 60%;
-        height: 40px; 
-        color:yellow;
-        display: inline-block; 
-
-        @media screen and (max-width: 1500px){
-          top: -4%;
-        }      
-
-        .statusBarTwo{
-          margin-top: 4%;
-          background: red;
-          width: 95%;
-          height:20px;
-
-        }//.statusBarTwo
-      
-      } //.statusbarTwoOuter
-    
-      p{
-        text-align: right;
-        margin-right: 10%;
-        position: relative;
-        bottom: 30%;
-        z-index: 100;
-      }
-
-      .statusbarTwoOuterBottom{
-        position: absolute;
-        bottom: 9%;
-        right: 10%;
-        background: white;
-        width: 60%;
-        height: 40px; 
-        color:yellow;
-        display: inline-block;     
-
-        .statusBarTwoBottom{
-          float: right;
-          margin-top: 4%;
-          background: lightblue;
-          width: 95%;
-          height:20px;
-
-        }//.statusBarTwoBottom
-      
-      } //.statusbarTwoOuterBottom
-
-    } //statusTwo
-  }//.playerTwoInfo
-}//.playerTwo
-
-
-.gameOptions{
-  width: 100%;
-  height: 25%;
-  background: white;
-  
-  div{
-    height: 90%;
-    margin: 1%;
-    border: 8px double black;
-    border-radius: 25px;
-    background: white;
-  }
-
-  .options{
-    height: 25%;
-    width: 60%;
-    float: right;
-    border: 8px double black;
-    border-radius: 25px;
-    position:absolute;
-    right: 0;
-    bottom: -2%;
-
-    div {
-      border: none;
-      padding: 1%;
-
+    .playerOne{
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      button{
-        font-size: 2.5rem;
-        font-family: squaredFont;
-        background: none;
-      }
-
-      select{
-
-      }
+      flex-direction: row;
+      width: $width;
+      height: $height*.75/2;
     }
-  }
+
+    .playerInfo{
+      background-color: yellow;
+      display: none;
+    }
+
+    .playerOnestatus {
+    }
+
+    .statusbarOneOuter{
+    }
+
+    .statusBarOne{
+      width:50px;
+    }
+
+    .playerOneImg{
+      background-color: red;
+
+    }
+
+    /***********PLAYER TWO************/
+    /***********PLAYER TWO************/
+
+    .playerTwo{
+      display: flex;
+      flex-direction: row;
+      width: $width;
+      height: $height*.75/2;
+
+      .playerTwoImg{
+       
+        min-width: $width*.4;
+        height: $playerHeight;
+
+        img{
+          width: $width*.4;
+          height: auto;
+          z-index: -1;
+          position: relative;
+          left:15px;
+          top: -30px;
+        }
+
+      }//.playerTwoImg
+
+      .playerTwoInfo{
+        width: $statusWidth;
+        height: $playerHeight;
+      
+        .playerTwostatus {
+            padding-left: $width*.06;
+            height: $playerHeight/2;
+          
+          .playerTwoName{
+            margin: 0;
+            font-size: 3rem;
+            font-family: squaredFontBold;
+          }//.playerTwoName
+
+          p{
+            margin: 0;
+            float: right;
+            padding-right: 30px;
+          }
+        }//.playerTwostatus 
+
+        /***********PLAYER TWO STATUS BAR ************/
+        /***********PLAYER TWO STATUS BAR ************/
+          
+        .statusTwo{
+          background-image: url('/images/player2_piece.png'); 
+          background-repeat: no-repeat;
+          background-position: 95% 65%;
+          position: relative;
+          width: $width*.6;
+          height: $playerHeight/2;
+          bottom: 15px;
+          right: 25px;
+
+          .healthPoints{
+            background:black;
+            font-family: squaredFontBold;
+            font-size: 1.75rem;
+            color:white;
+            display: inline-block;
+            height: 40px;
+            margin-left: 50px;
+            padding:6px 15px 0 4px;
+            position: relative;
+            top: -15px;
+          
+          }//.healthPoints
+
+          .statusbarTwoOuter{
+            position: absolute;
+            background: white;
+            width: 350px;
+            height: 20px; 
+            color:yellow;
+            display: inline-block;     
+
+            .statusBarTwo{
+              background: red;
+              width: 335px;
+              height: 15px;
+
+            }//.statusBarTwo
+          
+          } //.statusbarTwoOuter
+        
+          p{
+            text-align: right;
+            position: absolute;
+            z-index: 100;
+            right: 70px;
+            top: 0px;
+          }
+
+          .statusbarTwoOuterBottom{
+            position: absolute;
+            bottom: 8px;
+            right: 60px;
+            background: white;
+            width: 400px;
+            height: 40px; 
+            display: inline-block;     
+
+            .statusBarTwoBottom{
+              position: absolute;
+              bottom: 0;
+              right: 0;
+              margin-top: 4%;
+              background: lightblue;
+              width: 385px;
+              height: 9px;
+
+            }//.statusBarTwoBottom
+          
+          } //.statusbarTwoOuterBottom
+
+        } //statusTwo
+      }//.playerTwoInfo
+    }//.playerTwo
+  }//..gameScreen
+
+/***********Game options************/
+/***********Game options************/
+  
+  .gameBottom{
+    width: $width;
+    height: $optionHeight;
+    background: white;
+    z-index: 10;
+    position: relative;
+
+    .mainOptions{
+      position: absolute;
+      top: 7px;
+      right: 5px;
+      left:5px;
+      width: $width - 10px;
+      height: $optionHeight - 5px;
+      border: 8px inset;
+      border-radius: 25px;
+      background:white;
+      z-index: -2;
+
+      .options::before{
+        position: absolute;
+        left: -18px;
+        top: -5px;
+        content: "";
+        background: white;
+        min-width: 10px;
+        border: 10px white solid;
+        border-radius:25px;
+        height: $optionHeight - 18px;
+        z-index: -1;
+
+      }
+      .options{
+        height: $optionHeight + 10px;
+        width: $width*.6;
+        border: 8px inset;
+        border-radius: 25px;
+        background: white;
+        position: absolute;
+        right: -7px;
+        top: -15px;
+        padding: 10px 0;
+        display: flex;
+        justify-content: space-around;
 
 
-}
+          .attackOptions{
+            // flex-direction: row;
+
+          }
+          .realOptions{
+  
+          }
+
+          h6{
+            margin: 0;
+            font-size: 3rem;
+            padding: 3px;
+          }
+        
+      }//.options
+    }//.mainOptions
+  }//.gameOptions
+
+}//mainGame
