@@ -14,16 +14,28 @@
   src: url('/fonts/player_1_up/player1upboldital.ttf')
 }
 
+@font-face{
+  font-family: "gameboy";
+  src: url('/fonts/jackster-productions_pokemon-gb/Pokemon_GB.ttf')
+}
+
 
 // // ***********************************
 // // Variables
 // // ***********************************
 
-$width: 900px;
+//SIZE
+$width: 700px;
 $height: 600px;
-$playerHeight: $height*.75/2;
+$playerHeight: $height*.70/2;
 $optionHeight: $height*.25;
 $statusWidth: $width*6;
+
+//COLORS
+$aged: #FEFEF7;
+$agedBlack: #414141;
+$blue: #4D7DB3;
+$red: #8F5350;
 
 // // ***********************************
 // // STYLES
@@ -41,21 +53,23 @@ html {
 body{
   display: flex;
   flex-direction: column;
-  width: 100%;
-  height: 100%;
   margin: 0;
-  font-family: squaredFont;
-  font-size: 2.5rem;
+  font-family: "gameboy";
+  font-size: 2.25rem;
+  background:black;
+  color: $agedBlack;
 }
+
 .mainGame{
   width: $width;
   height: $height;
   margin: 0 auto;
-  border: 1px solid red;
+  background:$aged;
 
   .gameScreen{
     width: $width;
-    height: $height*.75;
+    height: $height*.7;
+    background: $aged;
 
     /***********PLAYER ONE************/
     /***********PLAYER ONE************/
@@ -73,12 +87,13 @@ body{
         height: $playerHeight;
 
         img{
-          width: $width*.25;
+          width: $width*.3;
           height: auto;
           z-index: -1;
           position: relative;
-          left:50px;
-          top: 5px;
+          left:20px;
+          top: 20px;
+          z-index: 1;
         }
 
       }//.playerOneImg
@@ -94,14 +109,27 @@ body{
           .playerOneName{
             margin: 0;
             padding: 10px 0 0 0;
-            font-size: 3rem;
-            font-family: squaredFontBold;
           }//.playerOneName
 
           p{
             margin: 0;
-            float: right;
-            padding-right: 30px;
+            position: relative;
+            font-size: 1.75rem;
+            padding-right: 100px;
+            text-align: right;
+
+            .fa-venus, .fa-mars{
+              font-size: 1.5rem;
+              padding-left: 10px;
+            }
+
+            .fa-venus{
+              display: none;
+            }
+
+            .fa-mars{
+              transform: rotate(-45deg);
+            }
           }
         }//.playerOnestatus 
 
@@ -111,42 +139,40 @@ body{
         .statusOne{
           background-image: url('/images/player1_piece.png'); 
           background-repeat: no-repeat;
-          background-position: 95% 65%;
           position: relative;
           width: $width*.6;
           height: $playerHeight/2;
-          bottom: 15px;
-          left: -60px;
+          bottom: 40px;
+          left: 30px;
 
           .healthPoints{
-            background:black;
-            font-family: squaredFontBold;
-            font-size: 1.5rem;
-            color:white;
+            background:$agedBlack;
+            font-size: 1rem;
+            color:$aged;
             display: inline-block;
-            height: 35px;
-            width: 375px;
+            height: 25px;
+            width: 293px;
             padding:6px 15px 0 6px;
             position: relative;
-            top: 20px;
-            left: 130px;
+            top: 5px;
+            left: 30px;
 
 
             .statusbarOneOuter{
               position: absolute;
-              background: white;
-              width: 290px;
-              height: 30px; 
-              left:70px;
+              background: $aged;
+              width: 230px;
+              height: 20px; 
+              left:50px;
               top: 0px;
               display: inline-block;     
 
               .statusBarOne{
                 position: absolute;
-                background: red;
-                width: 280px;
-                height: 15px;
-                bottom:5px;
+                background: $red;
+                width: 230px;
+                height: 10px;
+                top: 5px;
 
               }//.statusBarOne
             
@@ -158,7 +184,7 @@ body{
             position: absolute;
             bottom: 8px;
             right: 60px;
-            background: white;
+            background: $aged;
             width: 400px;
             height: 40px; 
             display: inline-block;     
@@ -168,7 +194,7 @@ body{
               bottom: 0;
               right: 0;
               margin-top: 4%;
-              background: lightblue;
+              background: $blue;
               width: 385px;
               height: 9px;
 
@@ -195,9 +221,9 @@ body{
         height: $playerHeight;
 
         img{
-          width: $width*.35;
+          width: $width*.4;
           height: auto;
-          z-index: -1;
+          z-index: 1;
           position: relative;
           left:25px;
           top: -10px;
@@ -215,14 +241,25 @@ body{
           
           .playerTwoName{
             margin: 0;
-            font-size: 3rem;
-            font-family: squaredFontBold;
           }//.playerTwoName
 
           p{
             margin: 0;
             float: right;
-            padding-right: 30px;
+            padding-right: 50px;
+
+            .fa{
+              font-size: 1.5rem;
+              padding-left: 10px;
+            }
+
+            .fa-venus{
+              display: none;
+            }
+
+            .fa-mars{
+              transform: rotate(-45deg);
+            }
           }
         }//.playerTwostatus 
 
@@ -232,60 +269,59 @@ body{
         .statusTwo{
           background-image: url('/images/player2_piece.png'); 
           background-repeat: no-repeat;
-          background-position: 95% 65%;
           position: relative;
           width: $width*.6;
-          height: $playerHeight/2;
-          bottom: 15px;
-          right: 25px;
+          height: $playerHeight;
+          right: -45px;
+          bottom: 35px;
 
           .healthPoints{
-            background:black;
-            font-family: squaredFontBold;
-            font-size: 1.75rem;
-            color:white;
+            background: $agedBlack;
+            font-size: 1.5rem;
+            color:$aged;
             display: inline-block;
-            height: 40px;
-            margin-left: 50px;
-            padding:6px 15px 0 4px;
+            height: 30px;
+            width: 70px;
+            padding:6px 15px 3px 4px;
             position: relative;
-            top: -15px;
+            top: -7px;
           
           }//.healthPoints
 
           .statusbarTwoOuter{
             position: absolute;
-            background: white;
-            width: 350px;
-            height: 20px; 
+            background: $aged;
+            width: 250px;
+            height: 15px; 
+            top: 5px;
             color:yellow;
             display: inline-block;     
 
             .statusBarTwo{
-              background: red;
-              width: 335px;
-              height: 15px;
-
+              background: $red;
+              position: relative;
+              width: 250px;
+              height: 12px;
             }//.statusBarTwo
           
           } //.statusbarTwoOuter
         
           p{
             text-align: right;
-            position: absolute;
+            position: relative;
             z-index: 100;
-            right: 70px;
-            top: 0px;
+            right: 120px;
+            top: -25px;
+            font-size: 2rem;
           }
 
           .statusbarTwoOuterBottom{
-            position: absolute;
-            bottom: 8px;
-            right: 60px;
-            background: white;
-            width: 400px;
-            height: 40px; 
-            display: inline-block;     
+            position: relative;
+            background: $aged;
+            width: 270px;
+            height: 15px; 
+            bottom: 55px;
+            left:50px;            
 
             .statusBarTwoBottom{
               position: absolute;
@@ -293,7 +329,7 @@ body{
               right: 0;
               margin-top: 4%;
               background: lightblue;
-              width: 385px;
+              width: 270px;
               height: 9px;
 
             }//.statusBarTwoBottom
@@ -311,7 +347,7 @@ body{
   .gameBottom{
     width: $width;
     height: $optionHeight;
-    background: white;
+    background: $aged;
     z-index: 10;
     position: relative;
 
@@ -322,15 +358,15 @@ body{
       left:5px;
       width: $width - 10px;
       height: $optionHeight - 5px;
-      border: 8px inset;
+      border: 8px double;
       border-radius: 25px;
-      background:white;
+      background:$aged;
       z-index: -2;
 
       h4{
         margin:0;
         padding: 15px;
-        font-size: 2rem;
+        font-size: 1.75rem;
       }
 
       .options::before{
@@ -338,7 +374,7 @@ body{
         left: -18px;
         top: -5px;
         content: "";
-        background: white;
+        background: $aged;
         min-width: 10px;
         border: 10px white solid;
         border-radius:25px;
@@ -349,30 +385,46 @@ body{
       .options{
         height: $optionHeight + 10px;
         width: $width*.6;
-        border: 8px inset;
+        border: 8px double;
         border-radius: 25px;
-        background: white;
+        background: $aged;
         position: absolute;
         right: -7px;
         top: -15px;
-        padding: 10px 0;
-        display: flex;
-        justify-content: space-around;
-
-
-          .attackOptions{
-
-          }
-          .realOptions{
-  
-          }
-
-          h6{
-            margin: 0;
-            font-size: 3rem;
-            padding: 3px;
-          }
+        padding: 20px 0 0 0;
         
+        table{
+          table-layout: fixed;
+          margin: 0 auto;
+          
+          tr{
+            
+
+            td{
+              
+              margin: 20px;
+
+              h6{
+                margin: 0;
+                margin-left: 20px;
+                padding: 0;
+                font-size: 1.75rem;
+                display: inline;
+
+              }
+
+              .fa-caret-right{
+                font-size: 2.5rem;
+                height: 40px;
+              }
+
+              .hide{
+                display: none;
+                min-width: 18px;
+              }
+            }
+          }
+        }
       }//.options
     }//.mainOptions
   }//.gameOptions
