@@ -49,17 +49,98 @@ body {
   -ms-flex-direction: row;
       flex-direction: row;
   width: 900px;
+  height: 202.5px;
+  margin-bottom: 22.5px;
+}
+.mainGame .gameScreen .playerOne .playerOneImg {
+  min-width: 360px;
   height: 225px;
 }
-.mainGame .gameScreen .playerInfo {
-  background-color: yellow;
-  display: none;
+.mainGame .gameScreen .playerOne .playerOneImg img {
+  width: 225px;
+  height: auto;
+  z-index: -1;
+  position: relative;
+  left: 50px;
+  top: 5px;
 }
-.mainGame .gameScreen .statusBarOne {
-  width: 50px;
+.mainGame .gameScreen .playerOne .playerOneInfo {
+  width: 5400px;
+  height: 225px;
+  /***********PLAYER ONE STATUS BAR ************/
+  /***********PLAYER ONE STATUS BAR ************/
 }
-.mainGame .gameScreen .playerOneImg {
-  background-color: red;
+.mainGame .gameScreen .playerOne .playerOneInfo .playerOnestatus {
+  padding-left: 54px;
+  height: 112.5px;
+}
+.mainGame .gameScreen .playerOne .playerOneInfo .playerOnestatus .playerOneName {
+  margin: 0;
+  padding: 10px 0 0 0;
+  font-size: 3rem;
+  font-family: squaredFontBold;
+}
+.mainGame .gameScreen .playerOne .playerOneInfo .playerOnestatus p {
+  margin: 0;
+  float: right;
+  padding-right: 30px;
+}
+.mainGame .gameScreen .playerOne .playerOneInfo .statusOne {
+  background-image: url("/images/player1_piece.png");
+  background-repeat: no-repeat;
+  background-position: 95% 65%;
+  position: relative;
+  width: 540px;
+  height: 112.5px;
+  bottom: 15px;
+  left: -60px;
+}
+.mainGame .gameScreen .playerOne .playerOneInfo .statusOne .healthPoints {
+  background: black;
+  font-family: squaredFontBold;
+  font-size: 1.5rem;
+  color: white;
+  display: inline-block;
+  height: 35px;
+  width: 375px;
+  padding: 6px 15px 0 6px;
+  position: relative;
+  top: 20px;
+  left: 130px;
+}
+.mainGame .gameScreen .playerOne .playerOneInfo .statusOne .healthPoints .statusbarOneOuter {
+  position: absolute;
+  background: white;
+  width: 290px;
+  height: 30px;
+  left: 70px;
+  top: 0px;
+  display: inline-block;
+}
+.mainGame .gameScreen .playerOne .playerOneInfo .statusOne .healthPoints .statusbarOneOuter .statusBarOne {
+  position: absolute;
+  background: red;
+  width: 280px;
+  height: 15px;
+  bottom: 5px;
+}
+.mainGame .gameScreen .playerOne .playerOneInfo .statusOne .statusbarOneOuterBottom {
+  position: absolute;
+  bottom: 8px;
+  right: 60px;
+  background: white;
+  width: 400px;
+  height: 40px;
+  display: inline-block;
+}
+.mainGame .gameScreen .playerOne .playerOneInfo .statusOne .statusbarOneOuterBottom .statusBarOneBottom {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-top: 4%;
+  background: lightblue;
+  width: 385px;
+  height: 9px;
 }
 .mainGame .gameScreen .playerTwo {
   display: -ms-flexbox;
@@ -74,12 +155,12 @@ body {
   height: 225px;
 }
 .mainGame .gameScreen .playerTwo .playerTwoImg img {
-  width: 360px;
+  width: 315px;
   height: auto;
   z-index: -1;
   position: relative;
-  left: 15px;
-  top: -30px;
+  left: 25px;
+  top: -10px;
 }
 .mainGame .gameScreen .playerTwo .playerTwoInfo {
   width: 5400px;
@@ -179,6 +260,11 @@ body {
   border-radius: 25px;
   background: white;
   z-index: -2;
+}
+.mainGame .gameBottom .mainOptions h4 {
+  margin: 0;
+  padding: 15px;
+  font-size: 2rem;
 }
 .mainGame .gameBottom .mainOptions .options::before {
   position: absolute;

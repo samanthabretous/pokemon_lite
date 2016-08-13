@@ -1,9 +1,4 @@
-// ***********************************
-// IMPORTS
-// Import susy, breakpoint, resets and grids
-// ***********************************
-@import '../../bower_components/susy/sass/susy';
-@import '../../bower_components/breakpoint-sass/stylesheets/_breakpoint';
+
 
 // // ***********************************
 // // FONTS
@@ -64,33 +59,126 @@ body{
 
     /***********PLAYER ONE************/
     /***********PLAYER ONE************/
-
     .playerOne{
       display: flex;
       flex-direction: row;
       width: $width;
-      height: $height*.75/2;
-    }
+      height: $height*.75/2*.9;
+      margin-bottom: $height*.75/2*.1;
 
-    .playerInfo{
-      background-color: yellow;
-      display: none;
-    }
 
-    .playerOnestatus {
-    }
+      .playerOneImg{
+       
+        min-width: $width*.4;
+        height: $playerHeight;
 
-    .statusbarOneOuter{
-    }
+        img{
+          width: $width*.25;
+          height: auto;
+          z-index: -1;
+          position: relative;
+          left:50px;
+          top: 5px;
+        }
 
-    .statusBarOne{
-      width:50px;
-    }
+      }//.playerOneImg
 
-    .playerOneImg{
-      background-color: red;
+      .playerOneInfo{
+        width: $statusWidth;
+        height: $playerHeight;
+      
+        .playerOnestatus {
+            padding-left: $width*.06;
+            height: $playerHeight/2;
+          
+          .playerOneName{
+            margin: 0;
+            padding: 10px 0 0 0;
+            font-size: 3rem;
+            font-family: squaredFontBold;
+          }//.playerOneName
 
-    }
+          p{
+            margin: 0;
+            float: right;
+            padding-right: 30px;
+          }
+        }//.playerOnestatus 
+
+        /***********PLAYER ONE STATUS BAR ************/
+        /***********PLAYER ONE STATUS BAR ************/
+          
+        .statusOne{
+          background-image: url('/images/player1_piece.png'); 
+          background-repeat: no-repeat;
+          background-position: 95% 65%;
+          position: relative;
+          width: $width*.6;
+          height: $playerHeight/2;
+          bottom: 15px;
+          left: -60px;
+
+          .healthPoints{
+            background:black;
+            font-family: squaredFontBold;
+            font-size: 1.5rem;
+            color:white;
+            display: inline-block;
+            height: 35px;
+            width: 375px;
+            padding:6px 15px 0 6px;
+            position: relative;
+            top: 20px;
+            left: 130px;
+
+
+            .statusbarOneOuter{
+              position: absolute;
+              background: white;
+              width: 290px;
+              height: 30px; 
+              left:70px;
+              top: 0px;
+              display: inline-block;     
+
+              .statusBarOne{
+                position: absolute;
+                background: red;
+                width: 280px;
+                height: 15px;
+                bottom:5px;
+
+              }//.statusBarOne
+            
+            } //.statusbarOneOuter
+          
+          }//.healthPoints
+
+          .statusbarOneOuterBottom{
+            position: absolute;
+            bottom: 8px;
+            right: 60px;
+            background: white;
+            width: 400px;
+            height: 40px; 
+            display: inline-block;     
+
+            .statusBarOneBottom{
+              position: absolute;
+              bottom: 0;
+              right: 0;
+              margin-top: 4%;
+              background: lightblue;
+              width: 385px;
+              height: 9px;
+
+            }//.statusBarOneBottom
+          
+          } //.statusbarOneOuterBottom
+
+        } //statusOne
+      }//.playerOneInfo
+    }//.playerOne
 
     /***********PLAYER TWO************/
     /***********PLAYER TWO************/
@@ -107,12 +195,12 @@ body{
         height: $playerHeight;
 
         img{
-          width: $width*.4;
+          width: $width*.35;
           height: auto;
           z-index: -1;
           position: relative;
-          left:15px;
-          top: -30px;
+          left:25px;
+          top: -10px;
         }
 
       }//.playerTwoImg
@@ -239,6 +327,12 @@ body{
       background:white;
       z-index: -2;
 
+      h4{
+        margin:0;
+        padding: 15px;
+        font-size: 2rem;
+      }
+
       .options::before{
         position: absolute;
         left: -18px;
@@ -267,7 +361,6 @@ body{
 
 
           .attackOptions{
-            // flex-direction: row;
 
           }
           .realOptions{
