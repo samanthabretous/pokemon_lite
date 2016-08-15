@@ -2,25 +2,17 @@
 
 var currentPlayer = "player1"
 var player1 = new Player(Pikachu);
+player1.skillsToArray();
 var displaying = "mainMenu";
 function attackDisplay() {
 	displaying = "attack"
 	console.log("it works")
-	$("#top-left").html("<h6 id=\"top-left\">"+player1.pokemonSkills[0]+"</h6>")
-	$("#top-right").html("<h6 id=\"top-right\">"+player1.pokemonSkills[1]+"</h6>");
-	$("#bottom-left").html("<h6 id=\"bottom-left\">"+player1.pokemonSkills[2]+"</h6>");
-	$("#top-right").html("<h6 id=\"bottom-right\">"+player1.pokemonSkills[3]+"</h6>");
+	$("#top-left").html(player1.pokemonSkills[0]);
+	$("#top-right").html(player1.pokemonSkills[1]);
+	$("#bottom-left").html(player1.pokemonSkills[2]);
+	$("#bottom-right").html(player1.pokemonSkills[3]);
 };
-player1.skillsToArray();
 $("#top-left").on('click', attackDisplay);
-
-player1 = Pikachu;
-$("#top-left").click(function(){
-	player1.skills.forEach(function(value, key){
-		console.log("value", value);
-		console.log("key", key);
-	})
-});
 
 //switch 
 $('.startBattle').click(function (){
