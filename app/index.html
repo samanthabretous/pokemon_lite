@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pokemon</title>
+
+  <!-- CSS links -->
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+
+ <!--  Font Awesome -->
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  
+
+<!--   Jquery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  
+<!-- External Scripts -->
+  <script src="js/app.js" defer></script>
+  <script src="js/pokemon.js" defer></script>
+  <script src="js/jq.js" defer></script>
+</head>
+<body>
+
+  <div class ="mainGame">
+    <div class="playerSelect">
+      <h2>Welcome to Pokemon</h2>
+
+
+      <section class="playerOneOptions">
+        <p>Player1</p>
+        <div class="cards">
+          <div class="card">
+            <h4>Name</h4>
+            <p class="playerHealth">80 HP</p>
+            <p class="playerMagic">80 Magic</p>
+            <ul><span>Attacks</span>
+              <li>Attack</li>
+              <li>Attack</li>
+              <li>Attack</li>
+            </ul>
+          <div>
+        </div>
+      </section><!-- .playerOneOptions -->
+
+      <section class="playerTwoOptions">
+        <p>Player 2</p>
+        <div class="cards">
+
+        </div>
+      </section><!-- .playerTwoOptions -->
+
+      <h6>Battle</h6>
+
+  </div>
+
+
+  <script type="text/javascript">
+    
+    $("h6").click(loadDoc)
+
+    function loadDoc() {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (xhttp.readyState == 4 && xhttp.status == 200) {
+          document.querySelector(".mainGame").innerHTML = xhttp.responseText;
+        }
+      };
+      xhttp.open("GET", "battle.html", true);
+      xhttp.send();
+    }
+
+
+
+
+
+  
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,385 @@
+*{
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body{
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  font-family: "gameboy";
+  font-size: 2.25rem;
+  background:black;
+  color: $agedBlack;
+}
+
+.mainGame{
+
+  .gameScreen{
+    width: $width;
+    height: $height*.7;
+    background: $aged;
+
+    /***********PLAYER ONE************/
+    /***********PLAYER ONE************/
+    .playerOne{
+      display: flex;
+      flex-direction: row;
+      width: $width;
+      height: $height*.75/2*.9;
+      margin-bottom: $height*.75/2*.1;
+
+
+      .playerOneImg{
+       
+        min-width: $width*.4;
+        height: $playerHeight;
+
+        img{
+          width: $width*.3;
+          height: auto;
+          z-index: -1;
+          position: relative;
+          left:20px;
+          top: 20px;
+          z-index: 1;
+        }
+
+      }//.playerOneImg
+
+      .playerOneInfo{
+        width: $statusWidth;
+        height: $playerHeight;
+      
+        .playerOnestatus {
+            padding-left: $width*.06;
+            height: $playerHeight/2;
+          
+          .playerOneName{
+            margin: 0;
+            padding: 10px 0 0 0;
+          }//.playerOneName
+
+          p{
+            margin: 0;
+            position: relative;
+            font-size: 1.75rem;
+            padding-right: 100px;
+            text-align: right;
+
+            .fa-venus, .fa-mars{
+              font-size: 1.5rem;
+              padding-left: 10px;
+            }
+
+            .fa-venus{
+              display: none;
+            }
+
+            .fa-mars{
+              transform: rotate(-45deg);
+            }
+          }
+        }//.playerOnestatus 
+
+        /***********PLAYER ONE STATUS BAR ************/
+        /***********PLAYER ONE STATUS BAR ************/
+          
+        .statusOne{
+          background-image: url('/images/player1_piece.png'); 
+          background-repeat: no-repeat;
+          position: relative;
+          width: $width*.6;
+          height: $playerHeight/2;
+          bottom: 40px;
+          left: 30px;
+
+          .healthPoints{
+            background:$agedBlack;
+            font-size: 1rem;
+            color:$aged;
+            display: inline-block;
+            height: 25px;
+            width: 293px;
+            padding:6px 15px 0 6px;
+            position: relative;
+            top: 5px;
+            left: 30px;
+
+
+            .statusbarOneOuter{
+              position: absolute;
+              background: $aged;
+              width: 230px;
+              height: 20px; 
+              left:50px;
+              top: 0px;
+              display: inline-block;     
+
+              .statusBarOne{
+                position: absolute;
+                background: $red;
+                width: 230px;
+                height: 10px;
+                top: 5px;
+
+              }//.statusBarOne
+            
+            } //.statusbarOneOuter
+          
+          }//.healthPoints
+
+          .statusbarOneOuterBottom{
+            position: absolute;
+            bottom: 8px;
+            right: 60px;
+            background: $aged;
+            width: 400px;
+            height: 40px; 
+            display: inline-block;     
+
+            .statusBarOneBottom{
+              position: absolute;
+              bottom: 0;
+              right: 0;
+              margin-top: 4%;
+              background: $blue;
+              width: 385px;
+              height: 9px;
+
+            }//.statusBarOneBottom
+          
+          } //.statusbarOneOuterBottom
+
+        } //statusOne
+      }//.playerOneInfo
+    }//.playerOne
+
+    /***********PLAYER TWO************/
+    /***********PLAYER TWO************/
+
+    .playerTwo{
+      display: flex;
+      flex-direction: row;
+      width: $width;
+      height: $height*.75/2;
+
+      .playerTwoImg{
+       
+        min-width: $width*.4;
+        height: $playerHeight;
+
+        img{
+          width: $width*.4;
+          height: auto;
+          z-index: 1;
+          position: relative;
+          left:25px;
+          top: -10px;
+        }
+
+      }//.playerTwoImg
+
+      .playerTwoInfo{
+        width: $statusWidth;
+        height: $playerHeight;
+      
+        .playerTwostatus {
+            padding-left: $width*.06;
+            height: $playerHeight/2;
+          
+          .playerTwoName{
+            margin: 0;
+          }//.playerTwoName
+
+          p{
+            margin: 0;
+            float: right;
+            padding-right: 50px;
+
+            .fa{
+              font-size: 1.5rem;
+              padding-left: 10px;
+            }
+
+            .fa-venus{
+              display: none;
+            }
+
+            .fa-mars{
+              transform: rotate(-45deg);
+            }
+          }
+        }//.playerTwostatus 
+
+        /***********PLAYER TWO STATUS BAR ************/
+        /***********PLAYER TWO STATUS BAR ************/
+          
+        .statusTwo{
+          background-image: url('/images/player2_piece.png'); 
+          background-repeat: no-repeat;
+          position: relative;
+          width: $width*.6;
+          height: $playerHeight;
+          right: -45px;
+          bottom: 35px;
+
+          .healthPoints{
+            background: $agedBlack;
+            font-size: 1.5rem;
+            color:$aged;
+            display: inline-block;
+            height: 30px;
+            width: 70px;
+            padding:6px 15px 3px 4px;
+            position: relative;
+            top: -7px;
+          
+          }//.healthPoints
+
+          .statusbarTwoOuter{
+            position: absolute;
+            background: $aged;
+            width: 250px;
+            height: 15px; 
+            top: 5px;
+            color:yellow;
+            display: inline-block;     
+
+            .statusBarTwo{
+              background: $red;
+              position: relative;
+              width: 250px;
+              height: 12px;
+            }//.statusBarTwo
+          
+          } //.statusbarTwoOuter
+        
+          p{
+            text-align: right;
+            position: relative;
+            z-index: 100;
+            right: 120px;
+            top: -25px;
+            font-size: 2rem;
+          }
+
+          .statusbarTwoOuterBottom{
+            position: relative;
+            background: $aged;
+            width: 270px;
+            height: 15px; 
+            bottom: 55px;
+            left:50px;            
+
+            .statusBarTwoBottom{
+              position: absolute;
+              bottom: 0;
+              right: 0;
+              margin-top: 4%;
+              background: lightblue;
+              width: 270px;
+              height: 9px;
+
+            }//.statusBarTwoBottom
+          
+          } //.statusbarTwoOuterBottom
+
+        } //statusTwo
+      }//.playerTwoInfo
+    }//.playerTwo
+  }//..gameScreen
+
+/***********Game options************/
+/***********Game options************/
+  
+  .gameBottom{
+    width: $width;
+    height: $optionHeight;
+    background: $aged;
+    z-index: 10;
+    position: relative;
+
+    .mainOptions{
+      position: absolute;
+      top: 7px;
+      right: 5px;
+      left:5px;
+      width: $width - 10px;
+      height: $optionHeight - 5px;
+      border: 8px double;
+      border-radius: 25px;
+      background:$aged;
+      z-index: -2;
+
+      h4{
+        margin:0;
+        padding: 15px;
+        font-size: 1.75rem;
+      }
+
+      .options::before{
+        position: absolute;
+        left: -18px;
+        top: -5px;
+        content: "";
+        background: $aged;
+        min-width: 10px;
+        border: 10px white solid;
+        border-radius:25px;
+        height: $optionHeight - 18px;
+        z-index: -1;
+
+      }
+      .options{
+        height: $optionHeight + 10px;
+        width: $width*.6;
+        border: 8px double;
+        border-radius: 25px;
+        background: $aged;
+        position: absolute;
+        right: -7px;
+        top: -15px;
+        padding: 20px 0 0 0;
+        
+        table{
+          table-layout: fixed;
+          margin: 0 auto;
+          
+          tr{
+            
+
+            td{
+              
+              margin: 20px;
+
+              h6{
+                margin: 0;
+                margin-left: 20px;
+                padding: 0;
+                font-size: 1.75rem;
+                display: inline;
+
+              }
+
+              .fa-caret-right{
+                font-size: 2.5rem;
+                height: 40px;
+              }
+
+              .hide{
+                display: none;
+                min-width: 18px;
+              }
+            }
+          }
+        }
+      }//.options
+    }//.mainOptions
+  }//.gameOptions
+
+}//mainGame
