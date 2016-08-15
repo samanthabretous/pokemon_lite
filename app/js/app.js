@@ -1,3 +1,4 @@
+
 function Pokemon (name, health, magic){
   this.name = name;
   this.health = health;
