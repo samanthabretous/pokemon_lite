@@ -21,15 +21,15 @@
 <body>
 
   <div class ="mainGame">
-    <div class="playerSelect hide">
+    <div class="characterSelection">
       <h2>Welcome to Pokemon</h2>
 
 
       <section class="playerOneOptions">
-        <p>Player1</p>
+        <h3>Player1</h3>
         <div class="cards">
           <!-- Card 1 -->
-          <div class="card">
+<!--           <div class="card">
             <h4>Name</h4>
             <p class="playerHealth">80 HP</p>
             <p class="playerMagic">80 Magic</p>
@@ -40,10 +40,45 @@
               <li>Attack</li>
               <li>Attack</li>
               <li>Attack</li>
-            </ul>
+            </ul> -->
           </div>
 
           <!-- Card 2 -->
+<!--           <div class="card">
+            <h4>Name</h4>
+            <p class="playerHealth">80 HP</p>
+            <p class="playerMagic">80 Magic</p>
+            <div class="char">
+              <img src="images/Pokémon_Bulbasaur_art.png">
+            </div>
+            <ul><span>Attacks</span>
+              <li>Attack</li>
+              <li>Attack</li>
+              <li>Attack</li>
+            </ul>
+          </div>
+        </div> -->
+      </section><!-- .playerOneOptions -->
+
+      <section class="playerTwoOptions">
+        <h3>Player2</h3>
+<!--         <div class="cards"> -->
+          <!-- Card 1 -->
+<!--           <div class="card">
+            <h4>Name</h4>
+            <p class="playerHealth">80 HP</p>
+            <p class="playerMagic">80 Magic</p>
+            <div class="char">
+              <img src="images/Pokémon_Bulbasaur_art.png">
+            </div>
+            <ul><span>Attacks</span>
+              <li>Attack</li>
+              <li>Attack</li>
+              <li>Attack</li>
+            </ul>
+          </div>
+
+          Card 2
           <div class="card">
             <h4>Name</h4>
             <p class="playerHealth">80 HP</p>
@@ -57,20 +92,13 @@
               <li>Attack</li>
             </ul>
           </div>
-        </div>
-      </section><!-- .playerOneOptions -->
-
-      <section class="playerTwoOptions">
-        <p>Player 2</p>
-        <div class="cards">
-
-        </div>
+        </div> -->
       </section><!-- .playerTwoOptions -->
 
-      <h6>Battle</h6>
+      <h6 class="startBattle">Battle</h6>
 
   </div>
-  <div class="battleScreen">
+  <div class="battleScreen hide">
     <div class="gameScreen">
       <!-- *********** PLAYER ONE *********** -->
       <!-- *********** PLAYER ONE *********** -->
@@ -124,7 +152,7 @@
         <div class="options">
           <h6 id="top-left">FIGHT</h6>
           <h6 id="top-right">PACK</h6>
-          <h6 id="bottom-right">RUN</h6>
+          <h6 id="bottom-left">RUN</h6>
           <h6 id="bottom-right">COOL</h6>
         </div><!-- .options -->
       </div><!-- .mainOptions -->
@@ -132,24 +160,6 @@
     </div>
 
 </div><!-- .mainGame -->
-
-
-  <script type="text/javascript">
-    
-    $("h6").click(loadDoc)
-
-    function loadDoc() {
-      var xhttp = new XMLHttpRequest();
-      xhttp.onreadystatechange = function() {
-        if (xhttp.readyState == 4 && xhttp.status == 200) {
-          document.querySelector(".mainGame").innerHTML = xhttp.responseText;
-        }
-      };
-      xhttp.open("GET", "battle.html", true);
-      xhttp.send();
-    }
-  
-  </script>
 
 </body>
 </html>

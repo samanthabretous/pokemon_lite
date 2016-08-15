@@ -6,3 +6,23 @@ $("#top-left").click(function(){
 		console.log("key", key);
 	})
 });
+
+//switch 
+$('.startBattle').click(function (){
+  console.log("test")
+  $('.characterSelection').addClass("hide");
+  $('.battleScreen').removeClass("hide");
+})
+
+function generateCard (pokemon){
+  $('.cards').first().append('<div class="card"></div>');
+  console.log(pokemon)
+  $('.card').append('<h4>'+pokemon.name+'</h4>')
+  $('.card').append('<p class="playerHealth">'+pokemon.health+'</p>')
+  $('.card').append('<p class="playerMagic">'+pokemon.magic.maxMagic+'</p>')
+
+}
+
+console.log(pokemonArray)
+generateCard(pokemonArray[0])
+

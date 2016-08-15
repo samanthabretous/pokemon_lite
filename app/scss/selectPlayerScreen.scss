@@ -2,66 +2,107 @@ h2{
   font-size: 1.5rem;
 }
 
-// .card:hover{
-//   background: yellow;
-//   width: 250px;
-//   height: 333px;
-//   transition: width .5s, height .5s, background-color .5s, transform .5s;
-// }
+.card:hover{
+  background: yellow;
+  width: 250px;
+  height: 333px;
+  transition: width .5s, height .5s, background-color .5s, transform .5s;
+}//.card:hover
 
-.cards{
+.characterSelection{
+  padding: 10px;
 
-  display: flex;
-  justify-content: center;
+  h3{
+    font-size: 1rem;
+    margin: 0;
+  }
+  h2{
+    height: $height *.1;
+    margin: 0;
+    padding-top: 10px;
+  }
+  .playerOneOptions{
+    height: $height * .45
+  }
+  .playerTwoOptions{
+    height: $height * .45
+  }
 
-  
-  .card{
+  p{
+    margin: 0;
+  }
 
+  .startBattle{
+    float: right;
+    position: fixed;
+    top: 0;
+    left: 600px; 
     background: red;
-    width: 170px;
-    height: 225px;
-    font-size: .5rem;
-    margin: 5px;
-    border-radius: 15px;
-  
+  }
+}
 
-    h4{
+  .cards{
 
+    display: flex;
+    justify-content: center;
 
-    }//h4
     
-    .playerHealth{
-
-
-    }//.playerHealth
+    .card{
+      width: 170px;
+      height: 225px;
+      font-size: .5rem;
+      margin: 5px;
+      border-radius: 15px;
+      border: double 2px;
+      padding: 5px 10px;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
     
-    .playerMagic{
+
+      h4{
 
 
-    }//..playerMagic
+      }//h4
+      
+      .playerHealth{
 
-    .char{
-      max-width: 170px;
-      max-height: 50px;
-      img{
-        width: 60%;
+
+      }//.playerHealth
+      
+      .playerMagic{
+
+
+      }//..playerMagic
+
+      .char{
+        max-width: 170px;
+        min-height: 50px;
+        display: flex;
+        justify-content: center;
+        
+        img{
+          width: 50%;
+          height: auto;
+        }
       }
-    }
 
-    ul{
+      ul{
+        text-align: center;
+        list-style: none;
+        padding: 0;
+        span{
+          font-size: .75rem;
 
-      span{
+        }//span
 
-
-      }//span
-
-      li{
-
-
-      }//li
+        li{
 
 
-    }//ul
+        }//li
 
-  }//.card
-}//.cards
+
+      }//ul
+
+    }//.card
+  }//.cards

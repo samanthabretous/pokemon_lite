@@ -334,6 +334,42 @@ h2 {
   font-size: 1.5rem;
 }
 
+.card:hover {
+  background: yellow;
+  width: 250px;
+  height: 333px;
+  transition: width .5s, height .5s, background-color .5s, transform .5s;
+}
+
+.characterSelection {
+  padding: 10px;
+}
+.characterSelection h3 {
+  font-size: 1rem;
+  margin: 0;
+}
+.characterSelection h2 {
+  height: 60px;
+  margin: 0;
+  padding-top: 10px;
+}
+.characterSelection .playerOneOptions {
+  height: 270px;
+}
+.characterSelection .playerTwoOptions {
+  height: 270px;
+}
+.characterSelection p {
+  margin: 0;
+}
+.characterSelection .startBattle {
+  float: right;
+  position: fixed;
+  top: 0;
+  left: 600px;
+  background: red;
+}
+
 .cards {
   display: -ms-flexbox;
   display: flex;
@@ -341,19 +377,39 @@ h2 {
       justify-content: center;
 }
 .cards .card {
-  background: red;
   width: 170px;
   height: 225px;
   font-size: .5rem;
   margin: 5px;
   border-radius: 15px;
+  border: double 2px;
+  padding: 5px 10px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-direction: column;
+      flex-direction: column;
 }
 .cards .card .char {
   max-width: 170px;
-  max-height: 50px;
+  min-height: 50px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+      justify-content: center;
 }
 .cards .card .char img {
-  width: 60%;
+  width: 50%;
+  height: auto;
+}
+.cards .card ul {
+  text-align: center;
+  list-style: none;
+  padding: 0;
+}
+.cards .card ul span {
+  font-size: .75rem;
 }
 
 .mainGame {
