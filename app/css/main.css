@@ -334,17 +334,26 @@ h2 {
   font-size: 1.5rem;
 }
 
-.card:hover {
-  background: yellow;
-  width: 250px;
-  height: 333px;
-  transition: width .5s, height .5s, background-color .5s, transform .5s;
-}
-
 .cards {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+      justify-content: center;
+}
+.cards .card {
   background: red;
-  width: 150px;
-  height: 200px;
+  width: 170px;
+  height: 225px;
+  font-size: .5rem;
+  margin: 5px;
+  border-radius: 15px;
+}
+.cards .card .char {
+  max-width: 170px;
+  max-height: 50px;
+}
+.cards .card .char img {
+  width: 60%;
 }
 
 .mainGame {
@@ -352,4 +361,8 @@ h2 {
   height: 600px;
   margin: 0 auto;
   background: #FEFEF7;
+}
+
+.hide {
+  display: none;
 }

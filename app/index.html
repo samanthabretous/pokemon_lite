@@ -21,23 +21,42 @@
 <body>
 
   <div class ="mainGame">
-    <div class="playerSelect">
+    <div class="playerSelect hide">
       <h2>Welcome to Pokemon</h2>
 
 
       <section class="playerOneOptions">
         <p>Player1</p>
         <div class="cards">
+          <!-- Card 1 -->
           <div class="card">
             <h4>Name</h4>
             <p class="playerHealth">80 HP</p>
             <p class="playerMagic">80 Magic</p>
+            <div class="char">
+              <img src="images/Pokémon_Bulbasaur_art.png">
+            </div>
             <ul><span>Attacks</span>
               <li>Attack</li>
               <li>Attack</li>
               <li>Attack</li>
             </ul>
-          <div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="card">
+            <h4>Name</h4>
+            <p class="playerHealth">80 HP</p>
+            <p class="playerMagic">80 Magic</p>
+            <div class="char">
+              <img src="images/Pokémon_Bulbasaur_art.png">
+            </div>
+            <ul><span>Attacks</span>
+              <li>Attack</li>
+              <li>Attack</li>
+              <li>Attack</li>
+            </ul>
+          </div>
         </div>
       </section><!-- .playerOneOptions -->
 
@@ -51,6 +70,68 @@
       <h6>Battle</h6>
 
   </div>
+  <div class="battleScreen">
+    <div class="gameScreen">
+      <!-- *********** PLAYER ONE *********** -->
+      <!-- *********** PLAYER ONE *********** -->
+      <div class="playerOne">
+        <div class="playerOneInfo">
+          <div class="playerOnestatus">
+            <h4 class="playerOneName"> PLAYER 1</h4> 
+            <p>:L4<span><i class="fa fa-venus" aria-hidden="true"></i></span><span><i class="fa fa-mars" aria-hidden="true"></i></span></p>
+          </div> <!-- .playerOnestatus -->
+          <div class="statusOne"> 
+            <div class="healthPoints">HP:
+              <div class="statusbarOneOuter"> 
+                <div class="statusBarOne"></div>
+              </div>
+            </div>
+          </div> <!-- .statusOne -->
+        </div> <!-- .playerOneInfo -->
+        <div class="playerOneImg">
+          <img src="https://upload.wikimedia.org/wikipedia/en/a/aa/Pok%C3%A9mon_Meowth_art.png">
+        </div>
+      </div><!-- playerOne -->
+
+      <!-- *********** PLAYER TWO *********** -->
+      <!-- *********** PLAYER TWO *********** -->
+      <div class="playerTwo">
+        <div class="playerTwoImg">
+          <img src="https://upload.wikimedia.org/wikipedia/en/a/a5/Pok%C3%A9mon_Charmander_art.png">
+        </div>
+        <div class="playerTwoInfo">
+          <div class="playerTwostatus">
+            <h4 class="playerTwoName"> PLAYER 2</h4> 
+            <p>:L4<span><i class="fa fa-venus" aria-hidden="true"></i></span><span><i class="fa fa-mars" aria-hidden="true"></i></span></p>
+          </div> <!-- .playerTwostatus -->
+          <div class="statusTwo"> 
+            <div class="healthPoints">HP:</div>
+            <div class="statusbarTwoOuter"> 
+              <div class="statusBarTwo"></div>
+            </div>
+            <p><span>35</span>/<span>179</span></p>
+            <div class="statusbarTwoOuterBottom"> 
+              <div class="statusBarTwoBottom"></div>
+            </div>
+          </div> <!-- .statusTwo -->
+        </div> <!-- .playerTwoInfo -->
+      </div><!-- playerTwo -->
+
+    </div><!-- gameScreen -->
+    <div class="gameBottom">
+      <div class="mainOptions">
+        <h4>LOREM ISPUM BLAH BLAH BLAH OH YEAH. WELCOME TO POKEMONLOREM ISPUM BLAH BLAH BLAH OH YEAH.</h4>
+        <div class="options">
+          <h6 id="top-left">FIGHT</h6>
+          <h6 id="top-right">PACK</h6>
+          <h6 id="bottom-right">RUN</h6>
+          <h6 id="bottom-right">COOL</h6>
+        </div><!-- .options -->
+      </div><!-- .mainOptions -->
+    </div>
+    </div>
+
+</div><!-- .mainGame -->
 
 
   <script type="text/javascript">
@@ -67,11 +148,6 @@
       xhttp.open("GET", "battle.html", true);
       xhttp.send();
     }
-
-
-
-
-
   
   </script>
 
