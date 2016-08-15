@@ -4,7 +4,7 @@ var pokemonArray = []
 
 // pokemon
 Pikachu = new Pokemon("Pikachu",100,100);
-Bulbasaur = new Pokemon("Bulbasaur", 150, 150);
+Bulbasaur = new Pokemon("Bulbasaur", 150, 150, "images/Pokémon_Bulbasaur_art.png");
 pokemonArray.push(Pikachu, Bulbasaur);
 
 //Pikachu abilites

@@ -1,11 +1,12 @@
 
-function Pokemon (name, health, magic){
+function Pokemon (name, health, magic, image){
   this.name = name;
   this.health = health;
   this.magic = {
     maxMagic: magic, 
     currentMagic: magic
   };
+  this.image = image;
   this.skills = {}
 }
 

@@ -7,7 +7,7 @@ $("#top-left").click(function(){
 	})
 });
 
-//switch 
+//switch the screen from card selection to battle screen
 $('.startBattle').click(function (){
   console.log("test")
   $('.characterSelection').addClass("hide");
@@ -17,12 +17,31 @@ $('.startBattle').click(function (){
 function generateCard (pokemon){
   $('.cards').first().append('<div class="card"></div>');
   console.log(pokemon)
-  $('.card').append('<h4>'+pokemon.name+'</h4>')
-  $('.card').append('<p class="playerHealth">'+pokemon.health+'</p>')
-  $('.card').append('<p class="playerMagic">'+pokemon.magic.maxMagic+'</p>')
+
+  //add pokemon name
+  $('.card').append('<h4>'+pokemon.name.toUpperCase()+'</h4>');
+
+  //add health
+  $('.card').append('<p class="playerHealth">'+pokemon.health+' HP</p>');
+
+  //add magic
+  $('.card').append('<p class="playerMagic">'+ pokemon.magic.maxMagic+' MAGIC</p>');
+
+  //add image
+  $('.card').append('<div class="char"></div>')
+  $('.char').append('<img src ="' +pokemon.image+'">');
+
+  $('.card').append('<ul><span>ATTACKS</span></ul>');
+
+  $.each(pokemon.skills, function (key, value){
+    $('ul').append('<li>'+key+'</li>')
+  });
+  
+
+  
 
 }
 
 console.log(pokemonArray)
-generateCard(pokemonArray[0])
+generateCard(pokemonArray[1])
 
