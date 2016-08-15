@@ -32,10 +32,6 @@ body {
 }
 
 .mainGame {
-  width: 700px;
-  height: 600px;
-  margin: 0 auto;
-  background: #FEFEF7;
   /***********Game options************/
   /***********Game options************/
 }
@@ -332,4 +328,28 @@ body {
 .mainGame .gameBottom .mainOptions .options table tr td .hide {
   display: none;
   min-width: 18px;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+.card:hover {
+  background: yellow;
+  width: 250px;
+  height: 333px;
+  transition: width .5s, height .5s, background-color .5s, transform .5s;
+}
+
+.cards {
+  background: red;
+  width: 150px;
+  height: 200px;
+}
+
+.mainGame {
+  width: 700px;
+  height: 600px;
+  margin: 0 auto;
+  background: #FEFEF7;
 }
