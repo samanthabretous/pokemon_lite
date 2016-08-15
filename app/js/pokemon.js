@@ -26,3 +26,4 @@ Bulbasaur.learnAttackSkill(Tackle);
 Bulbasaur.learnAttackSkill(LeechSeed);
 Bulbasaur.learnAttackSkill(VineWhip);
 Bulbasaur.learnAttackSkill(PoisonPowder);
+
