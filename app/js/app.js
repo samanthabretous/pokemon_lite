@@ -1,8 +1,9 @@
+
 function Player (pokemonObj){
   this.pokemon = pokemonObj;
   this.pokemonSkills = [];
 }
-function Pokemon (name, health, magic){
+function Pokemon (name, health, magic, image){
   this.name = name;
   this.health = {
     maxHealth: health,
@@ -12,6 +13,7 @@ function Pokemon (name, health, magic){
     maxMagic: magic, 
     currentMagic: magic
   };
+  this.image = image;
   this.skills = {}
 }
 function AttackSkill (attackName, damage, magicNeeded) {

@@ -3,9 +3,13 @@
 var pokemonArray = []
 
 // pokemon
-var Pikachu = new Pokemon("Pikachu",100,100);
-var Bulbasaur = new Pokemon("Bulbasaur", 150, 150);
-pokemonArray.push(Pikachu, Bulbasaur);
+Pikachu = new Pokemon("Pikachu",100,100, "images/Pokémon_Charmander_art.png");
+Pikachu2 = new Pokemon("Pikachu 2",100,100, "images/Pokémon_Charmander_art.png");
+Pikachu3 = new Pokemon("Pikachu 3",100,100, "images/Pokémon_Charmander_art.png");
+Pikachu4 = new Pokemon("Pikachu 4",100,100, "images/Pokémon_Charmander_art.png");
+Bulbasaur = new Pokemon("Bulbasaur", 150, 150, "images/Pokémon_Bulbasaur_art.png");
+Bulbasaur2 = new Pokemon("Bulbasaur1", 150, 150, "images/Pokémon_Bulbasaur_art.png");
+pokemonArray.push(Pikachu, Bulbasaur, Pikachu2, Bulbasaur2, Pikachu3, Pikachu4);
 
 //Pikachu abilites
 var TailWhip = new AttackSkill("TailWhip",10,20);
