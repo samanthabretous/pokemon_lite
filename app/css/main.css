@@ -344,39 +344,30 @@ h2 {
 .characterSelection {
   padding: 10px;
 }
-.characterSelection h3 {
-  font-size: 1rem;
-  margin: 0;
-}
 .characterSelection h2 {
   height: 60px;
   margin: 0;
   padding-top: 10px;
 }
-.characterSelection .playerOneOptions {
+.characterSelection .slideShow .playerOneOptions {
   height: 270px;
 }
-.characterSelection .playerTwoOptions {
+.characterSelection .slideShow .playerTwoOptions {
   height: 270px;
 }
-.characterSelection p {
+.characterSelection .slideShow .playerOneOptions h3, .characterSelection .slideShow .playerTwoOptions h3 {
+  font-size: 1rem;
   margin: 0;
 }
-.characterSelection .startBattle {
-  float: right;
-  position: fixed;
-  top: 0;
-  left: 600px;
-  background: red;
-}
-
-.cards {
+.characterSelection .slideShow .playerOneOptions .playerCards, .characterSelection .slideShow .playerTwoOptions .playerCards {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: center;
       justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
-.cards .card {
+.characterSelection .slideShow .playerOneOptions .playerCards .card, .characterSelection .slideShow .playerTwoOptions .playerCards .card {
   width: 170px;
   height: 225px;
   font-size: .5rem;
@@ -391,25 +382,43 @@ h2 {
   -ms-flex-direction: column;
       flex-direction: column;
 }
-.cards .card .char {
+.characterSelection .slideShow .playerOneOptions .playerCards .card .char, .characterSelection .slideShow .playerTwoOptions .playerCards .card .char {
   max-width: 170px;
   min-height: 50px;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: center;
       justify-content: center;
+  border: 3px yellow solid;
 }
-.cards .card .char img {
+.characterSelection .slideShow .playerOneOptions .playerCards .card .char img, .characterSelection .slideShow .playerTwoOptions .playerCards .card .char img {
   width: 50%;
   height: auto;
 }
-.cards .card ul {
+.characterSelection .slideShow .playerOneOptions .playerCards .card ul, .characterSelection .slideShow .playerTwoOptions .playerCards .card ul {
   text-align: center;
   list-style: none;
   padding: 0;
 }
-.cards .card ul span {
+.characterSelection .slideShow .playerOneOptions .playerCards .card ul span, .characterSelection .slideShow .playerTwoOptions .playerCards .card ul span {
   font-size: .75rem;
+}
+.characterSelection .slideShow .playerOneOptions .playerCards .current, .characterSelection .slideShow .playerTwoOptions .playerCards .current {
+  display: block;
+  background: green;
+}
+.characterSelection .playerOneOptions {
+  height: 270px;
+}
+.characterSelection p {
+  margin: 0;
+}
+.characterSelection .startBattle {
+  float: right;
+  position: fixed;
+  top: 0;
+  left: 600px;
+  background: red;
 }
 
 .mainGame {

@@ -2,6 +2,8 @@ h2{
   font-size: 1.5rem;
 }
 
+
+
 .card:hover{
   background: yellow;
   width: 250px;
@@ -12,21 +14,125 @@ h2{
 .characterSelection{
   padding: 10px;
 
-  h3{
-    font-size: 1rem;
-    margin: 0;
-  }
   h2{
     height: $height *.1;
     margin: 0;
     padding-top: 10px;
   }
+
+  .slideShow{
+
+    .prevCard{
+
+    }
+
+    .playerOneOptions{
+      height: $height * .45
+    }
+
+    .playerTwoOptions{
+      height: $height * .45
+    }
+
+    .playerOneOptions, .playerTwoOptions{
+
+
+      h3{
+        font-size: 1rem;
+        margin: 0;
+      }
+
+      .playerCards{
+
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+
+
+        .card{
+          width: 170px;
+          height: 225px;
+          font-size: .5rem;
+          margin: 5px;
+          border-radius: 15px;
+          border: double 2px;
+          padding: 5px 10px;
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+
+
+
+        
+
+          h4{
+
+
+          }//h4
+          
+          .playerHealth{
+
+
+          }//.playerHealth
+          
+          .playerMagic{
+
+
+          }//..playerMagic
+
+          .char{
+            max-width: 170px;
+            min-height: 50px;
+            display: flex;
+            justify-content: center;
+            border: 3px yellow solid;
+            
+            img{
+              width: 50%;
+              height: auto;
+            }
+          }
+
+          ul{
+            text-align: center;
+            list-style: none;
+            padding: 0;
+            span{
+              font-size: .75rem;
+
+            }//span
+
+            li{
+
+
+            }//li
+
+
+          }//ul
+
+        }//.card
+        .current{
+          display: block;
+          background:green;
+        }
+        
+      }//.playercards
+
+
+    }//.playerOneOptions, .playerTwoOptions
+
+
+    .nextCard{
+
+    }
+  }
+
+
+
   .playerOneOptions{
     height: $height * .45
   }
-  .playerTwoOptions{
-    height: $height * .45
-  }
+
 
   p{
     margin: 0;
@@ -41,68 +147,4 @@ h2{
   }
 }
 
-  .cards{
 
-    display: flex;
-    justify-content: center;
-
-    
-    .card{
-      width: 170px;
-      height: 225px;
-      font-size: .5rem;
-      margin: 5px;
-      border-radius: 15px;
-      border: double 2px;
-      padding: 5px 10px;
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-    
-
-      h4{
-
-
-      }//h4
-      
-      .playerHealth{
-
-
-      }//.playerHealth
-      
-      .playerMagic{
-
-
-      }//..playerMagic
-
-      .char{
-        max-width: 170px;
-        min-height: 50px;
-        display: flex;
-        justify-content: center;
-        
-        img{
-          width: 50%;
-          height: auto;
-        }
-      }
-
-      ul{
-        text-align: center;
-        list-style: none;
-        padding: 0;
-        span{
-          font-size: .75rem;
-
-        }//span
-
-        li{
-
-
-        }//li
-
-
-      }//ul
-
-    }//.card
-  }//.cards

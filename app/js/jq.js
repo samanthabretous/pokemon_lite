@@ -1,47 +1,96 @@
 // once the player choses its pokemon create an array with all available attacks. make player an object where we can store the pokemon he selected, all available skills current health current magic.
-player1 = Pikachu;
-$("#top-left").click(function(){
-	player1.skills.forEach(function(value, key){
-		console.log("value", value);
-		console.log("key", key);
-	})
-});
+
+var currentPlayer = "player1"
+var player1 = new Player(Pikachu);
+player1.skillsToArray();
+var displaying = "mainMenu";
+function attackDisplay() {
+	displaying = "attack"
+	console.log("it works")
+	$("#top-left").html(player1.pokemonSkills[0]);
+	$("#top-right").html(player1.pokemonSkills[1]);
+	$("#bottom-left").html(player1.pokemonSkills[2]);
+	$("#bottom-right").html(player1.pokemonSkills[3]);
+};
+$("#top-left").on('click', attackDisplay);
+
+//Defined the two players and will be filled on when user clicks on the 
+var Player1;
+var Player2;
+
+function findInArray(clickedPokemon){
+  //grab the name of the selected card
+  var pokemonName = $(clickedPokemon).children(":first").html()
+
+  // look through the pokemonArray and pass that obj as a new player
+  var pokemonObj;
+  var element = 0;
+  $.each(pokemonArray, function (index){
+    if(pokemonArray[index].name.toUpperCase() === pokemonName){
+      pokemonObj = pokemonArray[index]
+      element = index;
+    }
+  })
+  //console.log(pokemonObj)
+  return [pokemonObj,element];
+}
+
+//player one Cards
+$('.playerOneOptions > .playerCards > .card').on("click", function (){
+  var clickedPokemon = this;
+  var foundObj = findInArray(clickedPokemon);
+
+  Player1 = new Player(foundObj[0])
+
+
+  //remove the pokemonObj from the pokemonArray
+  pokemonArray.splice(foundObj[1],1)
+
+  //remove player1 card selection
+  $('.playerTwoOptions > .playerCards').html("")
+  $('.playerOneOptions').hide();
+  $('.playerTwoOptions').show();
+
+  //show the pokemonArray for player2
+
+  for(var i = 0; i < pokemonArray.length; i++){
+    var displayPokemon = generateCard(".playerTwoOptions",pokemonArray[i], i+1);
+    $('.playerTwoOptions').append(displayPokemon)
+  }
+
+})// card Click
+
+
+$('.playerTwoOptions .playerCards').on("click", '.card',function (){
+  console.log("hello")
+  var clickedPokemon = this;
+  var foundObj = findInArray(clickedPokemon);
+
+  Player2 = new Player(foundObj[0])
+
+  // //remove the pokemonObj from the pokemonArray
+  pokemonArray.splice(foundObj[1],1)
+  console.log(pokemonArray)
+
+  //remove player2 card selection
+  $('.playerTwoOptions').remove();
+   $('.startBattle').show();
+
+})// card Click
+
+
 
 //switch the screen from card selection to battle screen
 $('.startBattle').click(function (){
-  console.log("test")
   $('.characterSelection').addClass("hide");
   $('.battleScreen').removeClass("hide");
 })
 
-function generateCard (pokemon){
-  $('.cards').first().append('<div class="card"></div>');
-  console.log(pokemon)
 
-  //add pokemon name
-  $('.card').append('<h4>'+pokemon.name.toUpperCase()+'</h4>');
 
-  //add health
-  $('.card').append('<p class="playerHealth">'+pokemon.health+' HP</p>');
 
-  //add magic
-  $('.card').append('<p class="playerMagic">'+ pokemon.magic.maxMagic+' MAGIC</p>');
 
-  //add image
-  $('.card').append('<div class="char"></div>')
-  $('.char').append('<img src ="' +pokemon.image+'">');
 
-  $('.card').append('<ul><span>ATTACKS</span></ul>');
 
-  $.each(pokemon.skills, function (key, value){
-    $('ul').append('<li>'+key+'</li>')
-  });
-  
 
-  
-
-}
-
-console.log(pokemonArray)
-generateCard(pokemonArray[1])
 
