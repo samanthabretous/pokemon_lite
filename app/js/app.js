@@ -5,7 +5,10 @@ function Player (pokemonObj){
 }
 function Pokemon (name, health, magic, image){
   this.name = name;
-  this.health = health;
+  this.health = {
+    maxHealth: health,
+    currentHealth: health
+  };
   this.magic = {
     maxMagic: magic, 
     currentMagic: magic
@@ -33,14 +36,14 @@ Pokemon.prototype.attack = function (skillKey, pokemon) {
 	if(this.magic < this.skills[skillKey].magicNeeded){
 		console.log("not enough Magic!!!!");
 	}else {
-		pokemon.health -= this.skills[skillKey].damage;
+		pokemon.health.currentHealth -= this.skills[skillKey].damage;
 		this.magic.currentMagic -= this.skills[skillKey].magicNeeded
 		console.log(this.name + " launched skill " + skillKey + " successfully!");
 		console.log(pokemon.name + " received " + this.skills[skillKey].damage +" damage");
 		//pikachu launched skill 'lightning' successfully!
 		//bulbasaur got 40 damage
-		if(pokemon.health < 0){
-		pokemon.health = 0;
+		if(pokemon.health.currentHealth < 0){
+		pokemon.health.currentMagic = 0;
 		}
 	}
 }
@@ -57,16 +60,14 @@ Pokemon.prototype.getMagic = function() {
   //current magic can never go above max magic
   var addMagic = Math.round(this.magic.maxMagic * .10) 
   var updatedMagic = 0;
-  console.log("current", this.magic.currentMagic)
-
-    this.magic.currentMagic += addMagic
+   this.magic.currentMagic += addMagic
     if(this.magic.currentMagic > this.magic.maxMagic){
       this.magic.currentMagic = this.magic.maxMagic
     }
+  console.log("current", this.magic.currentMagic);
 }
 
 function gameOver() {
-
 }
 
 function reset() {
