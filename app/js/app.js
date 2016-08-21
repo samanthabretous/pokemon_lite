@@ -1,7 +1,6 @@
 
 function Player (pokemonObj){
   this.pokemon = pokemonObj;
-  this.pokemonSkills = [];
 }
 function Pokemon (name, health, magic, image){
   this.name = name;
@@ -15,14 +14,15 @@ function Pokemon (name, health, magic, image){
   };
   this.image = image;
   this.skills = {}
+  this.pokemonSkills = [];
 }
 function AttackSkill (attackName, damage, magicNeeded) {
   this.attackName = attackName;
   this.damage = damage;
   this.magicNeeded = magicNeeded;
 }
-Player.prototype.skillsToArray = function(){
-  for(key in this.pokemon.skills){
+Pokemon.prototype.skillsToArray = function(){
+  for(key in this.skills){
     this.pokemonSkills.push(key);
   }
 }

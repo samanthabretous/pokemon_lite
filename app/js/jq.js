@@ -15,6 +15,8 @@ $(".mainOptions > h4").html(currentPlayer);
 // keeps track of what is being displayed
 var displaying = "mainMenu";
 
+// displaying proper pictures
+// $("#playerOneImg:first-child").setAttribute("src", player1.pokemon.image);
 // ability to switch between players
 function switchPlayers(){
 	if (currentPlayer === "player1"){
@@ -28,10 +30,10 @@ function switchPlayers(){
 // what to display during the attack click
 function attackDisplay(player) {
 	displaying = "attack"
-	$("#top-left").html(player.pokemonSkills[0]);
-	$("#top-right").html(player.pokemonSkills[1]);
-	$("#bottom-left").html(player.pokemonSkills[2]);
-	$("#bottom-right").html(player.pokemonSkills[3]);
+	$("#top-left").html(player.pokemon.pokemonSkills[0]);
+	$("#top-right").html(player.pokemon.pokemonSkills[1]);
+	$("#bottom-left").html(player.pokemon.pokemonSkills[2]);
+	$("#bottom-right").html(player.pokemon.pokemonSkills[3]);
 };
 
 function mainDisplay(player, otherPlayer , $clicker) {
@@ -156,7 +158,7 @@ $('.playerOneOptions > .playerCards > .card').on("click", function (){
   var foundObj = findInArray(clickedPokemon);
 
   Player1 = new Player(foundObj[0]);
-  Player1.skillsToArray();
+  $(".playerOneImg > img").attr("src", Player1.pokemon.image);
 
   //remove the pokemonObj from the pokemonArray
   pokemonArray.splice(foundObj[1],1);
@@ -177,16 +179,16 @@ $('.playerOneOptions > .playerCards > .card').on("click", function (){
 
 
 $('.playerTwoOptions .playerCards').on("click", '.card',function (){
-  console.log("hello")
+  // console.log("hello")
   var clickedPokemon = this;
   var foundObj = findInArray(clickedPokemon);
 
   Player2 = new Player(foundObj[0])
-  Player2.skillsToArray();
+  $(".playerTwoImg > img").attr("src", Player2.pokemon.image);
 
   // //remove the pokemonObj from the pokemonArray
   pokemonArray.splice(foundObj[1],1)
-  console.log(pokemonArray)
+  // console.log(pokemonArray)
 
   //remove player2 card selection
   $('.playerTwoOptions').remove();
