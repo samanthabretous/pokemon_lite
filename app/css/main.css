@@ -58,13 +58,13 @@ body {
   height: 210px;
 }
 .mainGame .gameScreen .playerOne .playerOneImg img {
-  width: 210px;
-  height: auto;
+  /*width: 210px;*/
+  height: 200px;
   z-index: -1;
   position: relative;
   left: 20px;
   top: 20px;
-  z-index: 1;
+  z-index: 0;
 }
 .mainGame .gameScreen .playerOne .playerOneInfo {
   width: 4200px;

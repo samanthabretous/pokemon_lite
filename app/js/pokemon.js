@@ -1,33 +1,64 @@
-//perma create pokemon look up some pokemon adn their abilities and create both
-// pokemon array
-var pokemonArray = []
+function Pokemon (name, health, magic, image){
+  this.name = name;
+  this.health = {
+    maxHealth: health,
+    currentHealth: health
+  };
+  this.magic = {
+    maxMagic: magic, 
+    currentMagic: magic
+  };
+  this.image = image;
+  this.skills = {}
+  this.pokemonSkills = [];
+}
+function AttackSkill (attackName, damage, magicNeeded) {
+  this.attackName = attackName;
+  this.damage = damage;
+  this.magicNeeded = magicNeeded;
+}
+Pokemon.prototype.skillsToArray = function(){
+  for(key in this.skills){
+    this.pokemonSkills.push(key);
+  }
+}
 
-// pokemon
-Pikachu = new Pokemon("Pikachu",100,100, "images/Pokémon_Charmander_art.png");
-Pikachu2 = new Pokemon("Pikachu 2",100,100, "images/Pokémon_Charmander_art.png");
-Pikachu3 = new Pokemon("Pikachu 3",100,100, "images/Pokémon_Charmander_art.png");
-Pikachu4 = new Pokemon("Pikachu 4",100,100, "images/Pokémon_Charmander_art.png");
-Bulbasaur = new Pokemon("Bulbasaur", 150, 150, "images/Pokémon_Bulbasaur_art.png");
-Bulbasaur2 = new Pokemon("Bulbasaur1", 150, 150, "images/Pokémon_Bulbasaur_art.png");
-pokemonArray.push(Pikachu, Bulbasaur, Pikachu2, Bulbasaur2, Pikachu3, Pikachu4);
+Pokemon.prototype.learnAttackSkill = function (objAttachSkill) {
+  //add skill that was used into the pokemon's skill object
+  this.skills[objAttachSkill.attackName] = objAttachSkill;
+}
 
-//Pikachu abilites
-var TailWhip = new AttackSkill("TailWhip",10,20);
-var ThunderShock  = new AttackSkill("ThunderShock", 15,30);
-var QuickAttack = new AttackSkill("QuickAttack", 8 , 0);
-var ElectroBall = new AttackSkill("ElectroBall", 20 , 40);
-Pikachu.learnAttackSkill(TailWhip);
-Pikachu.learnAttackSkill(ThunderShock);
-Pikachu.learnAttackSkill(QuickAttack);
-Pikachu.learnAttackSkill(ElectroBall);
+Pokemon.prototype.attack = function (skillKey, pokemon) {
+	if(this.magic < this.skills[skillKey].magicNeeded){
+		console.log("not enough Magic!!!!");
+	}else {
+		pokemon.health.currentHealth -= this.skills[skillKey].damage;
+		this.magic.currentMagic -= this.skills[skillKey].magicNeeded
+		console.log(this.name + " launched skill " + skillKey + " successfully!");
+		console.log(pokemon.name + " received " + this.skills[skillKey].damage +" damage");
+		//pikachu launched skill 'lightning' successfully!
+		//bulbasaur got 40 damage
+		if(pokemon.health.currentHealth < 0){
+		pokemon.health.currentMagic = 0;
+		}
+	}
+}
 
-//Bulbasaur abilites
-var Tackle = new AttackSkill("Tackle", 10, 20);
-var LeechSeed = new AttackSkill("LeechSeed", 14, 30);
-var VineWhip = new AttackSkill("VineWhip", 20, 50);
-var PoisonPowder = new AttackSkill("PoisonPowder", 5, 0);
-Bulbasaur.learnAttackSkill(Tackle);
-Bulbasaur.learnAttackSkill(LeechSeed);
-Bulbasaur.learnAttackSkill(VineWhip);
-Bulbasaur.learnAttackSkill(PoisonPowder);
 
+Pokemon.prototype.showStatus = function(){
+  console.log(this.name + " status")
+  console.log("health: " + this.health);
+  console.log("magic: " + this.magic.currentMagic);
+}
+
+Pokemon.prototype.getMagic = function() {
+  //10% of max magic
+  //current magic can never go above max magic
+  var addMagic = Math.round(this.magic.maxMagic * .10) 
+  var updatedMagic = 0;
+   this.magic.currentMagic += addMagic
+    if(this.magic.currentMagic > this.magic.maxMagic){
+      this.magic.currentMagic = this.magic.maxMagic
+    }
+  console.log("current", this.magic.currentMagic);
+}

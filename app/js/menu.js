@@ -5,13 +5,7 @@ var currentPlayer = "player1";
 var Player1;
 var Player2;
 $(".mainOptions > h4").html(currentPlayer);
-// temp creation of players 1 and 2
-// var Player1 = new Player(Pikachu);
-// Player1.skillsToArray();
-// var Player2 = new Player(Bulbasaur);
-// Player2.skillsToArray();
-// ////////
-// var something = Player2
+
 // keeps track of what is being displayed
 var displaying = "mainMenu";
 
@@ -28,10 +22,10 @@ function switchPlayers(){
 // what to display during the attack click
 function attackDisplay(player) {
 	displaying = "attack"
-	$("#top-left").html(player.pokemonSkills[0]);
-	$("#top-right").html(player.pokemonSkills[1]);
-	$("#bottom-left").html(player.pokemonSkills[2]);
-	$("#bottom-right").html(player.pokemonSkills[3]);
+	$("#top-left").html(player.pokemon.pokemonSkills[0]);
+	$("#top-right").html(player.pokemon.pokemonSkills[1]);
+	$("#bottom-left").html(player.pokemon.pokemonSkills[2]);
+	$("#bottom-right").html(player.pokemon.pokemonSkills[3]);
 };
 
 function mainDisplay(player, otherPlayer , $clicker) {
@@ -130,89 +124,6 @@ $("#bottom-right").on('click', function(){
 			mainDisplay(player, otherPlayer, $("#bottom-right"));
 	};
 });
-
-//Defined the two players and will be filled on when user clicks on the 
-
-function findInArray(clickedPokemon){
-  //grab the name of the selected card
-  var pokemonName = $(clickedPokemon).children(":first").html()
-
-  // look through the pokemonArray and pass that obj as a new player
-  var pokemonObj;
-  var element = 0;
-  $.each(pokemonArray, function (index){
-    if(pokemonArray[index].name.toUpperCase() === pokemonName){
-      pokemonObj = pokemonArray[index]
-      element = index;
-    }
-  })
-  //console.log(pokemonObj)
-  return [pokemonObj,element];
-}
-
-//player one Cards
-$('.playerOneOptions > .playerCards > .card').on("click", function (){
-  var clickedPokemon = this;
-  var foundObj = findInArray(clickedPokemon);
-
-  Player1 = new Player(foundObj[0]);
-  Player1.skillsToArray();
-
-  //remove the pokemonObj from the pokemonArray
-  pokemonArray.splice(foundObj[1],1);
-
-  //remove player1 card selection
-  $('.playerTwoOptions > .playerCards').html("")
-  $('.playerOneOptions').hide();
-  $('.playerTwoOptions').show();
-
-  //show the pokemonArray for player2
-
-  for(var i = 0; i < pokemonArray.length; i++){
-    var displayPokemon = generateCard(".playerTwoOptions",pokemonArray[i], i+1);
-    $('.playerTwoOptions').append(displayPokemon)
-  }
-
-})// card Click
-
-
-$('.playerTwoOptions .playerCards').on("click", '.card',function (){
-  var clickedPokemon = this;
-  var foundObj = findInArray(clickedPokemon);
-
-  Player2 = new Player(foundObj[0])
-  Player2.skillsToArray();
-
-  // //remove the pokemonObj from the pokemonArray
-  pokemonArray.splice(foundObj[1],1)
-
-  //remove player2 card selection
-  $('.playerTwoOptions').remove();
-   $('.startBattle').show();
-
-})// card Click
-
-
-
-//switch the screen from card selection to battle screen
-$('.startBattle').click(function (){
-  $('.characterSelection').addClass("hide");
-  $('.battleScreen').removeClass("hide");
-  displayPlayers(Player1, true);
-  displayPlayers(Player2);
-  $('.playerOne').animate("")
-})
-
-
-// display on battle screen the infomation about player 1 and tow
-function displayPlayers(player){
-  var num;
-  player == Player1 ? num = "One" : num = "Two"
-  
-  $('.player' + num + 'Name').text(player.pokemon.name);
-  $('.status' + num + ' p span').text(player.pokemon.magic.maxMagic);
-
-}
 
 
 
