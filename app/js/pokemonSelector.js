@@ -1,3 +1,4 @@
+// generate card info based on each pokemon object
 function generateCard (player, pokemon, cardNumber){
   $(player + ' .playerCards').append('<div class="card card' + cardNumber + '"></div>');
 
@@ -7,7 +8,7 @@ function generateCard (player, pokemon, cardNumber){
   $(card).append('<h4>'+ pokemon.name.toUpperCase() +'</h4>');
 
   // //add health
-  $(card).append('<p class="playerHealth">'+pokemon.health+' HP</p>');
+  $(card).append('<p class="playerHealth">'+pokemon.health.maxHealth +' HP</p>');
 
   //add magic
   $(card).append('<p class="playerMagic">'+ pokemon.magic.maxMagic+' MAGIC</p>');
@@ -37,6 +38,29 @@ for(var i = 0; i < pokemonArray.length; i++){
 
 $('.playerTwoOptions').hide();
 $('.startBattle').hide();
+
+//rotate cards
+
+setInterval(function(){
+  $('.slideshow .card').each(function(){
+  var next = $(this).next();
+  if (!next.length) {
+    next = $(this).siblings(':first');
+  }
+  next.children(':first-child').clone().appendTo($(this));
+
+  if (next.next().length>0) {
+ 
+      next.next().children(':first-child').clone().appendTo($(this)).addClass('rightest');
+      
+  }
+  else {
+      $(this).siblings(':first').children(':first-child').clone().appendTo($(this));
+     
+  }
+});
+
+},1000)
 
 
 

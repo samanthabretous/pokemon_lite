@@ -103,53 +103,60 @@ body {
   position: relative;
   width: 420px;
   height: 105px;
-  bottom: 40px;
+  bottom: 30px;
   left: 30px;
 }
 .mainGame .gameScreen .playerOne .playerOneInfo .statusOne .healthPoints {
   background: #414141;
-  font-size: 1rem;
+  font-size: 1.5rem;
   color: #FEFEF7;
   display: inline-block;
-  height: 25px;
-  width: 293px;
-  padding: 6px 15px 0 6px;
+  height: 30px;
+  width: 70px;
+  padding: 6px 15px 3px 0px;
   position: relative;
+  top: -7px;
+  left: 280px;
+}
+.mainGame .gameScreen .playerOne .playerOneInfo .statusOne .statusbarOneOuter {
+  position: absolute;
+  background: #FEFEF7;
+  width: 250px;
+  height: 15px;
   top: 5px;
   left: 30px;
-}
-.mainGame .gameScreen .playerOne .playerOneInfo .statusOne .healthPoints .statusbarOneOuter {
-  position: absolute;
-  background: #FEFEF7;
-  width: 230px;
-  height: 20px;
-  left: 50px;
-  top: 0px;
+  color: yellow;
   display: inline-block;
 }
-.mainGame .gameScreen .playerOne .playerOneInfo .statusOne .healthPoints .statusbarOneOuter .statusBarOne {
-  position: absolute;
+.mainGame .gameScreen .playerOne .playerOneInfo .statusOne .statusbarOneOuter .statusBarOne {
   background: #8F5350;
-  width: 230px;
-  height: 10px;
-  top: 5px;
+  position: relative;
+  width: 250px;
+  height: 12px;
+}
+.mainGame .gameScreen .playerOne .playerOneInfo .statusOne p {
+  text-align: right;
+  position: relative;
+  z-index: 100;
+  right: 160px;
+  top: -25px;
+  font-size: 2rem;
 }
 .mainGame .gameScreen .playerOne .playerOneInfo .statusOne .statusbarOneOuterBottom {
-  position: absolute;
-  bottom: 8px;
-  right: 60px;
+  position: relative;
   background: #FEFEF7;
-  width: 400px;
-  height: 40px;
-  display: inline-block;
+  width: 270px;
+  height: 15px;
+  bottom: 55px;
+  left: 30px;
 }
 .mainGame .gameScreen .playerOne .playerOneInfo .statusOne .statusbarOneOuterBottom .statusBarOneBottom {
   position: absolute;
   bottom: 0;
   right: 0;
   margin-top: 4%;
-  background: #4D7DB3;
-  width: 385px;
+  background: lightblue;
+  width: 270px;
   height: 9px;
 }
 .mainGame .gameScreen .playerTwo {
@@ -305,29 +312,19 @@ body {
   position: absolute;
   right: -7px;
   top: -15px;
-  padding: 20px 0 0 0;
+  padding: 20px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
-.mainGame .gameBottom .mainOptions .options table {
-  table-layout: fixed;
-  margin: 0 auto;
-}
-.mainGame .gameBottom .mainOptions .options table tr td {
-  margin: 20px;
-}
-.mainGame .gameBottom .mainOptions .options table tr td h6 {
-  margin: 0;
-  margin-left: 20px;
+.mainGame .gameBottom .mainOptions .options h6 {
+  margin: 10px 0 0 20px;
   padding: 0;
   font-size: 1.75rem;
   display: inline;
-}
-.mainGame .gameBottom .mainOptions .options table tr td .fa-caret-right {
-  font-size: 2.5rem;
-  height: 40px;
-}
-.mainGame .gameBottom .mainOptions .options table tr td .hide {
-  display: none;
-  min-width: 18px;
 }
 
 h2 {
@@ -349,6 +346,16 @@ h2 {
   margin: 0;
   padding-top: 10px;
 }
+.characterSelection .slideShow {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  -ms-flex-align: center;
+      align-items: center;
+}
 .characterSelection .slideShow .playerOneOptions {
   height: 270px;
 }
@@ -364,13 +371,14 @@ h2 {
   display: flex;
   -ms-flex-pack: center;
       justify-content: center;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  width: 560px;
+  overflow: hidden;
+  margin: 0 auto;
 }
 .characterSelection .slideShow .playerOneOptions .playerCards .card, .characterSelection .slideShow .playerTwoOptions .playerCards .card {
-  width: 170px;
-  height: 225px;
-  font-size: .5rem;
+  min-width: 200px;
+  height: 290px;
+  font-size: 18px;
   margin: 5px;
   border-radius: 15px;
   border: double 2px;

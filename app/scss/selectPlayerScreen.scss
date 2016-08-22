@@ -21,7 +21,10 @@ h2{
   }
 
   .slideShow{
-
+    display: flex;
+    flex-direction:row;
+    justify-content: space-between;
+    align-items: center;
     .prevCard{
 
     }
@@ -46,13 +49,16 @@ h2{
 
         display: flex;
         justify-content: center;
-        flex-wrap: wrap;
+        width: $width*.8;
+        overflow: hidden;
+        margin: 0 auto;
+        //flex-wrap: wrap;
 
 
         .card{
-          width: 170px;
-          height: 225px;
-          font-size: .5rem;
+          min-width: 200px;
+          height: 290px;
+          font-size: 18px;
           margin: 5px;
           border-radius: 15px;
           border: double 2px;

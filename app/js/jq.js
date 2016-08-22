@@ -199,24 +199,22 @@ $('.startBattle').click(function (){
   $('.characterSelection').addClass("hide");
   $('.battleScreen').removeClass("hide");
   displayPlayers(Player1, true);
-  //displayPlayers(Player2);
+  displayPlayers(Player2);
+  $('.playerOne').animate("")
 })
 
 
 // display on battle screen the infomation about player 1 and tow
-function displayPlayers(player, swap){
-  console.log(swap)
+function displayPlayers(player){
   var num;
-  if (player == Player1 && swap === undefined) {
-    num = "One"
-  } else {
-    num = "Two"
-  }
-
+  player == Player1 ? num = "One" : num = "Two"
+  
   $('.player' + num + 'Name').text(player.pokemon.name);
   $('.status' + num + ' p span').text(player.pokemon.magic.maxMagic);
 
 }
+
+
 
 
 

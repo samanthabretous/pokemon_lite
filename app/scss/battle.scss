@@ -95,65 +95,72 @@ body{
           position: relative;
           width: $width*.6;
           height: $playerHeight/2;
-          bottom: 40px;
+          bottom: 30px;
           left: 30px;
 
           .healthPoints{
-            background:$agedBlack;
-            font-size: 1rem;
+            background: $agedBlack;
+            font-size: 1.5rem;
             color:$aged;
             display: inline-block;
-            height: 25px;
-            width: 293px;
-            padding:6px 15px 0 6px;
+            height: 30px;
+            width: 70px;
+            padding:6px 15px 3px 0px;
             position: relative;
-            top: 5px;
-            left: 30px;
-
-
-            .statusbarOneOuter{
-              position: absolute;
-              background: $aged;
-              width: 230px;
-              height: 20px; 
-              left:50px;
-              top: 0px;
-              display: inline-block;     
-
-              .statusBarOne{
-                position: absolute;
-                background: $red;
-                width: 230px;
-                height: 10px;
-                top: 5px;
-
-              }//.statusBarOne
-            
-            } //.statusbarOneOuter
+            top: -7px;
+            left: 280px; 
           
           }//.healthPoints
 
-          .statusbarOneOuterBottom{
+          .statusbarOneOuter{
             position: absolute;
-            bottom: 8px;
-            right: 60px;
             background: $aged;
-            width: 400px;
-            height: 40px; 
+            width: 250px;
+            height: 15px; 
+            top: 5px;
+            left: 30px;
+            color:yellow;
             display: inline-block;     
+
+            .statusBarOne{
+              background: $red;
+              position: relative;
+              width: 250px;
+              height: 12px;
+            }//.statusBarTwo
+          
+          } //.statusbarTwoOuter
+        
+          p{
+            text-align: right;
+            position: relative;
+            z-index: 100;
+            right: 160px;
+            top: -25px;
+            font-size: 2rem;
+          }
+
+          .statusbarOneOuterBottom{
+            position: relative;
+            background: $aged;
+            width: 270px;
+            height: 15px; 
+            bottom: 55px;
+            left:30px;            
 
             .statusBarOneBottom{
               position: absolute;
               bottom: 0;
               right: 0;
               margin-top: 4%;
-              background: $blue;
-              width: 385px;
+              background: lightblue;
+              width: 270px;
               height: 9px;
 
             }//.statusBarOneBottom
           
           } //.statusbarOneOuterBottom
+
 
         } //statusOne
       }//.playerOneInfo
@@ -344,40 +351,20 @@ body{
         position: absolute;
         right: -7px;
         top: -15px;
-        padding: 20px 0 0 0;
+        padding: 20px;
+        display: flex;
+        flex-wrap:wrap;
+        justify-content: space-around;
         
-        table{
-          table-layout: fixed;
-          margin: 0 auto;
-          
-          tr{
-            
+          h6{
+            margin: 10px 0 0 20px;
+            padding: 0;
+            font-size: 1.75rem;
+            display: inline;
 
-            td{
-              
-              margin: 20px;
-
-              h6{
-                margin: 0;
-                margin-left: 20px;
-                padding: 0;
-                font-size: 1.75rem;
-                display: inline;
-
-              }
-
-              .fa-caret-right{
-                font-size: 2.5rem;
-                height: 40px;
-              }
-
-              .hide{
-                display: none;
-                min-width: 18px;
-              }
-            }
           }
-        }
+
+
       }//.options
     }//.mainOptions
   }//.gameOptions
