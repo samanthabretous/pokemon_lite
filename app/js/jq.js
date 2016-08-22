@@ -179,7 +179,7 @@ $('.playerOneOptions > .playerCards > .card').on("click", function (){
 
 
 $('.playerTwoOptions .playerCards').on("click", '.card',function (){
-  // console.log("hello")
+
   var clickedPokemon = this;
   var foundObj = findInArray(clickedPokemon);
 
@@ -188,7 +188,7 @@ $('.playerTwoOptions .playerCards').on("click", '.card',function (){
 
   // //remove the pokemonObj from the pokemonArray
   pokemonArray.splice(foundObj[1],1)
-  // console.log(pokemonArray)
+
 
   //remove player2 card selection
   $('.playerTwoOptions').remove();
@@ -202,7 +202,26 @@ $('.playerTwoOptions .playerCards').on("click", '.card',function (){
 $('.startBattle').click(function (){
   $('.characterSelection').addClass("hide");
   $('.battleScreen').removeClass("hide");
+  displayPlayers(Player1, true);
+  //displayPlayers(Player2);
 })
+
+
+// display on battle screen the infomation about player 1 and tow
+function displayPlayers(player, swap){
+  console.log(swap)
+  var num;
+  if (player == Player1 && swap === undefined) {
+    num = "One"
+  } else {
+    num = "Two"
+  }
+
+  $('.player' + num + 'Name').text(player.pokemon.name);
+  $('.status' + num + ' p span').text(player.pokemon.magic.maxMagic);
+
+}
+
 
 
 
