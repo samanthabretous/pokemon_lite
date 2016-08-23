@@ -3,7 +3,6 @@ h2{
 }
 
 
-
 .card:hover{
   background: yellow;
   width: 250px;
@@ -48,7 +47,7 @@ h2{
       .playerCards{
 
         display: flex;
-        justify-content: center;
+        //justify-content: center;
         width: $width*.8;
         overflow: hidden;
         margin: 0 auto;
@@ -118,8 +117,7 @@ h2{
 
         }//.card
         .current{
-          display: block;
-          background:green;
+          
         }
         
       }//.playercards
@@ -145,11 +143,11 @@ h2{
   }
 
   .startBattle{
-    float: right;
-    position: fixed;
-    top: 0;
-    left: 600px; 
-    background: red;
+    position: relative;
+    top: 0px;
+    left: $width*.18; 
+    font-size: 72px;
+    line-height: 0px;
   }
 }
 

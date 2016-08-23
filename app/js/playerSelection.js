@@ -32,6 +32,8 @@ $('.playerOneOptions > .playerCards > .card').on("click", function (){
   $('.playerTwoOptions > .playerCards').html("")
   $('.playerOneOptions').hide();
   $('.playerTwoOptions').show();
+  player1cards = false;
+  player2cards = true;
 
   //show the pokemonArray for player2
 
@@ -39,6 +41,7 @@ $('.playerOneOptions > .playerCards > .card').on("click", function (){
     var displayPokemon = generateCard(".playerTwoOptions",pokemonArray[i], i+1);
     $('.playerTwoOptions').append(displayPokemon)
   }
+  $('.playerTwoOptions .card1').addClass('current');
 
 })// card Click
 
