@@ -1,3 +1,6 @@
+var player1cards = true;
+var player2cards = false;
+
 // generate card info based on each pokemon object
 function generateCard (player, pokemon, cardNumber){
   $(player + ' .playerCards').append('<div class="card card' + cardNumber + '"></div>');
@@ -26,6 +29,7 @@ function generateCard (player, pokemon, cardNumber){
   
 }
 
+
 //display pokemon cards 
 for(var i = 0; i < pokemonArray.length; i++){
   var displayPokemon = generateCard(".playerOneOptions",pokemonArray[i], i+1);
@@ -38,30 +42,47 @@ for(var i = 0; i < pokemonArray.length; i++){
 
 $('.playerTwoOptions').hide();
 $('.startBattle').hide();
+$('.playerOneOptions .card1').addClass('current');
 
 //rotate cards
+//allow user to scroll through all the cards
+var nextEl = $(".nextCard");
+var prevEl = $(".prevCard");    
 
-setInterval(function(){
-  $('.slideshow .card').each(function(){
-  var next = $(this).next();
-  if (!next.length) {
-    next = $(this).siblings(':first');
-  }
-  next.children(':first-child').clone().appendTo($(this));
+var showNextSlide = function(playersTurn){
+  var currentElement = $(playersTurn + " .current");
 
-  if (next.next().length>0) {
- 
-      next.next().children(':first-child').clone().appendTo($(this)).addClass('rightest');
-      
-  }
-  else {
-      $(this).siblings(':first').children(':first-child').clone().appendTo($(this));
-     
-  }
-});
+  //add the class current to the next element then remove and append card to the end of the div
+  currentElement.removeClass("current");
+  currentElement.next().addClass("current");  
+  currentElement.appendTo($(playersTurn + ' .playerCards'))
+  //currentElement.remove()
+};
+  
 
-},1000)
+var showPreviousSlide = function(playersTurn){
+  var currentElement = $(playersTurn + " .current");
+  
+  //move the last element to the front of the div
+  var lastElement = currentElement.parent().children().last().addClass('current');
+  lastElement.prependTo($(playersTurn + ' .playerCards')) 
+  currentElement.removeClass("current");
+  currentElement.prev().addClass("current");
+};  
 
+//check to see who turn it is
+function whosTurn(){
+  return player1cards ? ".playerOneOptions" : ".playerTwoOptions"
+}
+
+nextEl.on("click", function (){
+  var playersTurn = whosTurn()
+  showNextSlide(playersTurn);
+})
+prevEl.on("click", function (){
+  var playersTurn = whosTurn();
+  showPreviousSlide(playersTurn);
+})
 
 
 
