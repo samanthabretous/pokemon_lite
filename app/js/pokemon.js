@@ -40,7 +40,14 @@ Pokemon.prototype.attack = function (skillKey, pokemon) {
 		//bulbasaur got 40 damage
 		if(pokemon.health.currentHealth < 0){
 		pokemon.health.currentMagic = 0;
-		}
+		};
+    var playerPassthrough = "";
+    if(currentPlayer[currentPlayer.length-1] === "1"){
+      playerPassthrough = 'Two';
+    }else{
+      playerPassthrough = 'One';
+    }
+    HealthBarLoss(this.skills[skillKey].damage, this.health.maxHealth, playerPassthrough);
 	}
 }
 
