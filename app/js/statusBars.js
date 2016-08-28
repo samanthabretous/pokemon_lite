@@ -6,5 +6,5 @@ function HealthBarLoss (damage, maxHealth, player){
 	if (newWidth < 0 ){ 
 		newWidth = 0;
 	};
-	$("#"+player).width(newWidth);
+	$("#"+player).animate({width: newWidth+"px"});
 }
