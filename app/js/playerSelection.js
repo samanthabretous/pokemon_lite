@@ -17,52 +17,84 @@ function findInArray(clickedPokemon){
   return [pokemonObj,element];
 }
 
-//player one Cards
-$('.playerOneOptions > .playerCards > .card').on("click", function (){
-  var clickedPokemon = this;
-  var foundObj = findInArray(clickedPokemon);
-
-  Player1 = new Player(foundObj[0]);
-  $(".playerOneImg > img").attr("src", Player1.pokemon.image);
-
-  //remove the pokemonObj from the pokemonArray
-  pokemonArray.splice(foundObj[1],1);
-
-  //remove player1 card selection
-  $('.playerTwoOptions > .playerCards').html("")
-  $('.playerOneOptions').hide();
-  $('.playerTwoOptions').show();
-  player1cards = false;
-  player2cards = true;
-
-  //show the pokemonArray for player2
-
+function displayPokemonCards (player) {
   for(var i = 0; i < pokemonArray.length; i++){
-    var displayPokemon = generateCard(".playerTwoOptions",pokemonArray[i], i+1);
-    $('.playerTwoOptions').append(displayPokemon)
+    var displayPokemon = generateCard(player ,pokemonArray[i], i+1);
+    $(player).append(displayPokemon)
   }
-  $('.playerTwoOptions .card1').addClass('current');
+}
 
-})// card Click
-
-
-$('.playerTwoOptions .playerCards').on("click", '.card',function (){
-
-  var clickedPokemon = this;
-  var foundObj = findInArray(clickedPokemon);
-
-  Player2 = new Player(foundObj[0])
-  $(".playerTwoImg > img").attr("src", Player2.pokemon.image);
-
-  // //remove the pokemonObj from the pokemonArray
-  pokemonArray.splice(foundObj[1],1)
+$('.startBattle').hide();
+var Player1 = new Player();
+var Player2 = new Player();
 
 
-  //remove player2 card selection
-  $('.playerTwoOptions').remove();
-   $('.startBattle').show();
+//player one Cards
+function playerOneSelectCard() {
+  //determine who turn it is
+  player1cards[0] = true;
+  player2cards[0] = false;
+  //show which player turn it is and hide the other 
+  $(player2cards[1]).hide();
+  $(player1cards[1]).show();
 
-})// card Click
+  //clear the cards on the board and reload the pokemon array
+  $(player1cards[1] + ' .playerCards').html("")
+  displayPokemonCards(player1cards[1]);
+  
+
+  $(player1cards[1] + ' .card1').addClass('current');
+
+  $(player1cards[1] + ' > .playerCards').on("click", '.card',function (){
+    var clickedPokemon = this;
+    var foundObj = findInArray(clickedPokemon);
+
+    //remove the pokemonObj from the pokemonArray
+    Player1.pokemon.push(pokemonArray[foundObj[1]])
+    pokemonArray.splice(foundObj[1],1);
+
+    console.log("1:", Player1)
+    
+    playerTwoSelectCard()
+
+  })// card Click
+}
+
+function playerTwoSelectCard() {
+    //determine who turn it is
+    player1cards[0] = false;
+    player2cards[0] = true;
+
+    //show which player turn it is and hide the other 
+    $('.playerOneOptions').hide();
+    $('.playerTwoOptions').show();
+
+    //
+    $('.playerTwoOptions .playerCards').html("")
+    displayPokemonCards(".playerTwoOptions")
+    $('.playerTwoOptions .card1').addClass('current');
+
+
+
+  $('.playerTwoOptions .playerCards').on("click", '.card',function (){
+
+    var clickedPokemon = this;
+    var foundObj = findInArray(clickedPokemon);
+
+    Player2 = new Player(foundObj[0])
+    // //remove the pokemonObj from the pokemonArray
+    Player2.pokemon.push(foundObj[0])
+    pokemonArray.splice(foundObj[1],1)
+
+    $('.playerTwoOptions').hide();
+    
+    //toggle back and forth between the two player until both of them have 5 pokemon
+    if(Player1.pokemon.length < 5){
+      playerOneSelectCard()
+    } else {$('.startBattle').show();}
+
+  })// card Click
+}
 
 
 
@@ -70,7 +102,7 @@ $('.playerTwoOptions .playerCards').on("click", '.card',function (){
 $('.startBattle').click(function (){
   $('.characterSelection').addClass("hide");
   $('.battleScreen').removeClass("hide");
-  displayPlayers(Player1, true);
+  displayPlayers(Player1);
   displayPlayers(Player2);
   $('.playerOne').animate("")
 })
@@ -83,5 +115,8 @@ function displayPlayers(player){
   
   $('.player' + num + 'Name').text(player.pokemon.name);
   $('.status' + num + ' p span').text(player.pokemon.magic.maxMagic);
+  $(".player" + num + "Img > img").attr("src", player[pokemon].image);
+  //$(".playerTwoImg > img").attr("src", Player2.pokemon.image);
 
 }
+playerOneSelectCard();

@@ -1,8 +1,9 @@
-var player1cards = true;
-var player2cards = false;
+var player1cards = [true, '.playerOneOptions'];
+var player2cards = [false, '.playerTwoOptions'];
 
 // generate card info based on each pokemon object
 function generateCard (player, pokemon, cardNumber){
+
   $(player + ' .playerCards').append('<div class="card card' + cardNumber + '"></div>');
 
   var card = player + " .playerCards .card" + cardNumber;
@@ -28,21 +29,6 @@ function generateCard (player, pokemon, cardNumber){
   });
   
 }
-
-
-//display pokemon cards 
-for(var i = 0; i < pokemonArray.length; i++){
-  var displayPokemon = generateCard(".playerOneOptions",pokemonArray[i], i+1);
-  $('.playerOneOptions').append(displayPokemon)
-}
-for(var i = 0; i < pokemonArray.length; i++){
-  var displayPokemon = generateCard(".playerTwoOptions",pokemonArray[i], i+1);
-  $('.playerTwoOptions').append(displayPokemon)
-}
-
-$('.playerTwoOptions').hide();
-$('.startBattle').hide();
-$('.playerOneOptions .card1').addClass('current');
 
 //rotate cards
 //allow user to scroll through all the cards
@@ -72,7 +58,7 @@ var showPreviousSlide = function(playersTurn){
 
 //check to see who turn it is
 function whosTurn(){
-  return player1cards ? ".playerOneOptions" : ".playerTwoOptions"
+  return player1cards[0] ? ".playerOneOptions" : ".playerTwoOptions"
 }
 
 nextEl.on("click", function (){
