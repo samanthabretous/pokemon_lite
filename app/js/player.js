@@ -1,3 +1,3 @@
 function Player (pokemonObj){
-  this.pokemon = pokemonObj;
+  this.pokemon = [];
 }
