@@ -38,46 +38,52 @@ function playerOneSelectCard() {
   $(player2cards[1]).hide();
   $(player1cards[1]).show();
 
-  //clear the cards on the board and reload the pokemon array
+  //clear the cards and on click listeners on the board and reload the pokemon array
   $(player1cards[1] + ' .playerCards').html("")
+  $(player1cards[1] + ' > .playerCards').unbind()
   displayPokemonCards(player1cards[1]);
-  
 
+  
+  //Staring the shuffle
   $(player1cards[1] + ' .card1').addClass('current');
 
+  //finds clicked card and pushes into player array outof pokemon array
   $(player1cards[1] + ' > .playerCards').on("click", '.card',function (){
+    // debugger;
     var clickedPokemon = this;
     var foundObj = findInArray(clickedPokemon);
 
     //remove the pokemonObj from the pokemonArray
-    Player1.pokemon.push(pokemonArray[foundObj[1]])
+    Player1.pokemon.push(pokemonArray[foundObj[1]]);
     pokemonArray.splice(foundObj[1],1);
 
-    console.log("1:", Player1)
+    console.log("1:", Player1);
     
-    playerTwoSelectCard()
-
+    playerTwoSelectCard();
   })// card Click
 }
 
 function playerTwoSelectCard() {
-    //determine who turn it is
-    player1cards[0] = false;
-    player2cards[0] = true;
+  //determine who turn it is
+  player1cards[0] = false;
+  player2cards[0] = true;
 
-    //show which player turn it is and hide the other 
-    $('.playerOneOptions').hide();
-    $('.playerTwoOptions').show();
+  //show which player turn it is and hide the other 
+  $('.playerOneOptions').hide();
+  $('.playerTwoOptions').show();
 
-    //
-    $('.playerTwoOptions .playerCards').html("")
-    displayPokemonCards(".playerTwoOptions")
-    $('.playerTwoOptions .card1').addClass('current');
+  //clear the cards on the board and reload the pokemon array
+  $('.playerTwoOptions .playerCards').html("")
+  $('.playerTwoOptions .playerCards').unbind()
+  displayPokemonCards(".playerTwoOptions")
+
+  //Staring the shuffle
+  $('.playerTwoOptions .card1').addClass('current');
 
 
-
+  //finds clicked card and pushes into player array outof pokemon array
   $('.playerTwoOptions .playerCards').on("click", '.card',function (){
-
+    // debugger;
     var clickedPokemon = this;
     var foundObj = findInArray(clickedPokemon);
 
