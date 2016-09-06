@@ -23,6 +23,7 @@ body{
     width: $width;
     height: $height*.7;
     background: $aged;
+    overflow: hidden;
 
     /***********PLAYER ONE************/
     /***********PLAYER ONE************/
@@ -32,6 +33,8 @@ body{
       width: $width;
       height: $height*.75/2*.9;
       margin-bottom: $height*.75/2*.1;
+      position: relative;
+      left: $width;
 
 
       .playerOneImg{
@@ -174,6 +177,8 @@ body{
       flex-direction: row;
       width: $width;
       height: $height*.75/2;
+      position: relative;
+      left: -700px;
 
       .playerTwoImg{
        
