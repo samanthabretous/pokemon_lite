@@ -39,6 +39,7 @@ body {
   width: 700px;
   height: 420px;
   background: #FEFEF7;
+  overflow: hidden;
   /***********PLAYER ONE************/
   /***********PLAYER ONE************/
   /***********PLAYER TWO************/
@@ -52,6 +53,8 @@ body {
   width: 700px;
   height: 202.5px;
   margin-bottom: 22.5px;
+  position: relative;
+  left: 700px;
 }
 .mainGame .gameScreen .playerOne .playerOneImg {
   min-width: 280px;
@@ -166,6 +169,8 @@ body {
       flex-direction: row;
   width: 700px;
   height: 225px;
+  position: relative;
+  left: -700px;
 }
 .mainGame .gameScreen .playerTwo .playerTwoImg {
   min-width: 280px;
