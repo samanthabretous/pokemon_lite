@@ -310,14 +310,14 @@ body {
 }
 .mainGame .gameBottom .mainOptions .options {
   height: 160px;
-  width: 420px;
+  width: 455px;
   border: 8px double;
   border-radius: 25px;
   background: #FEFEF7;
   position: absolute;
   right: -7px;
   top: -15px;
-  padding: 20px;
+  padding: 10px;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
@@ -325,10 +325,12 @@ body {
   -ms-flex-pack: distribute;
       justify-content: space-around;
 }
-.mainGame .gameBottom .mainOptions .options h6 {
-  margin: 10px 0 0 20px;
+.mainGame .gameBottom .mainOptions .options div {
+  width: 205px;
+}
+.mainGame .gameBottom .mainOptions .options div h6 {
   padding: 0;
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   display: inline;
 }
 
