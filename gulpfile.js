@@ -116,4 +116,4 @@ gulp.task('watch', function(){
 // //////////////////////////
 // Default Task
 // //////////////////////////
-gulp.task('default', ['scripts', 'compass', 'html', 'browser-sync', 'watch'])
+gulp.task('default', ['compass', 'html', 'browser-sync', 'watch'])
