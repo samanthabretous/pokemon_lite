@@ -29,7 +29,7 @@ Pokemon.prototype.learnAttackSkill = function (objAttachSkill) {
 }
 
 Pokemon.prototype.attack = function (skillKey, pokemon) {
-	if(this.magic < this.skills[skillKey].magicNeeded){
+	if(this.magic.currentMagic < this.skills[skillKey].magicNeeded){
 		console.log("not enough Magic!!!!");
 	}else {
 		pokemon.health.currentHealth -= this.skills[skillKey].damage;
@@ -49,7 +49,7 @@ Pokemon.prototype.attack = function (skillKey, pokemon) {
     }
     HealthBarLoss(this.skills[skillKey].damage, this.health.maxHealth, playerPassthrough);
 	}
-}
+};
 
 
 Pokemon.prototype.showStatus = function(){
