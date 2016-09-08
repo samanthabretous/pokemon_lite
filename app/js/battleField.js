@@ -21,10 +21,9 @@ function displayPlayers(player){
   var num;
   player == Player1 ? num = "One" : num = "Two"
   
-  $('.player' + num + 'Name').text(player.pokemon.name);
-  $('.status' + num + ' p span').text(player.pokemon.magic.maxMagic);
-  $(".player" + num + "Img > img").attr("src", player[pokemon].image);
+  $('.player' + num + 'Name').text(player.pokemon[0].name);
+  $('.status' + num + ' p span').text(player.pokemon[0].magic.maxMagic);
+  $(".player" + num + "Img > img").attr("src", player.pokemon[0].image);
   //$(".playerTwoImg > img").attr("src", Player2.pokemon.image);
 
 }
-playerOneSelectCard();

@@ -103,3 +103,6 @@ function playerTwoSelectCard() {
 
   })// card Click
 }
+
+playerOneSelectCard();
+

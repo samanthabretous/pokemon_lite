@@ -22,41 +22,50 @@ function switchPlayers(){
 // what to display during the attack click
 function attackDisplay(player) {
 	displaying = "attack"
-	$("#top-left").html(player.pokemon.pokemonSkills[0]);
-	$("#top-right").html(player.pokemon.pokemonSkills[1]);
-	$("#bottom-left").html(player.pokemon.pokemonSkills[2]);
-	$("#bottom-right").html(player.pokemon.pokemonSkills[3]);
+	$("#display-0").html(player.pokemon[0].pokemonSkills[0]);
+	$("#display-1").html(player.pokemon[0].pokemonSkills[1]);
+	$("#display-2").html(player.pokemon[0].pokemonSkills[2]);
+	$("#display-3").html(player.pokemon[0].pokemonSkills[3]);
 };
 
 function mainDisplay(player, otherPlayer , $clicker) {
 	if (displaying == "attack"){
 		if (currentPlayer == "player1"){
-			player.pokemon.attack($clicker.html(), otherPlayer.pokemon);
+			player.pokemon[0].attack($clicker.html(), otherPlayer.pokemon[0]);
 		}else {
-			player.pokemon.attack($clicker.html(), Player1.pokemon);
+			player.pokemon[0].attack($clicker.html(), Player1.pokemon[0]);
 		}
 	}else if(displaying == "pack"){
-		player.pokemon.getMagic();
+		player.pokemon[0].getMagic();
 	}
 	displaying = "mainMenu";
 	switchPlayers();
-	$("#top-left").html("FIGHT");
-	$("#top-right").html("PACK");
-	$("#bottom-left").html("RUN");
-	$("#bottom-right").html("POKEMON");
+
+	$("#display-0").html("FIGHT");
+	$("#display-1").html("PACK");
+	$("#display-2").html("RUN");
+	$("#display-3").html("POKEMON");
 };
 
 function packDisplay (player){
 	displaying = "pack";
-	$("#top-left").html("Raspberries");
-	$("#top-right").html("");
-	$("#bottom-left").html("");
-	$("#bottom-right").html("");
+	$("#display-0").html("Raspberries");
+	$("#display-1").html("");
+	$("#display-2").html("");
+	$("#display-3").html("");
 };
+
+function pokemonDisplay (player, otherPlayer, jqselection){
+	displaying = pokemonDisplay;
+	$("#display-0").html(player.pokemon[1].name);
+	$("#display-1").html(player.pokemon[2].name);
+	$("#display-2").html(player.pokemon[3].name);
+	$("#display-3").html(player.pokemon[4].name);
+}
 
 
 // switch cases for buttons
-$("#top-left").on('click', function(){
+$("#display-0").on('click', function(){
 	if(currentPlayer == "player1"){
 		var player = Player1;
 		var otherPlayer = Player2;
@@ -69,12 +78,12 @@ $("#top-left").on('click', function(){
 			attackDisplay(player);
 			break;
 		default:
-			mainDisplay(player, otherPlayer ,$("#top-left"));
+			mainDisplay(player, otherPlayer ,$("#display-0"));
 	};
 });
 
 
-$("#top-right").on('click', function(){
+$("#display-1").on('click', function(){
 	if(currentPlayer == "player1"){
 		var player = Player1;
 		var otherPlayer = Player2;
@@ -87,11 +96,11 @@ $("#top-right").on('click', function(){
 			packDisplay(player);
 			break;
 		default:
-			mainDisplay(player, otherPlayer, $("#top-right"));
+			mainDisplay(player, otherPlayer, $("#display-1"));
 	};
 });
 
-$("#bottom-left").on('click', function(){
+$("#display-2").on('click', function(){
 	if(currentPlayer == "player1"){
 		var player = Player1;
 		var otherPlayer = Player2;
@@ -101,14 +110,14 @@ $("#bottom-left").on('click', function(){
 	}
 	switch (displaying){
 		case "mainMenu" :
-			mainDisplay(player, otherPlayer, $("#bottom-left"));
+			mainDisplay(player, otherPlayer, $("#display-2"));
 			break;
 		default:
-			mainDisplay(player, otherPlayer, $("#bottom-left"));
+			mainDisplay(player, otherPlayer, $("#display-2"));
 	};
 });
 
-$("#bottom-right").on('click', function(){
+$("#display-3").on('click', function(){
 	if(currentPlayer == "player1"){
 		var player = Player1;
 		var otherPlayer = Player2;
@@ -118,10 +127,10 @@ $("#bottom-right").on('click', function(){
 	}
 	switch (displaying){
 		case "mainMenu" :
-			mainDisplay(player, otherPlayer, $("#bottom-left"));
+			pokemonDisplay(player, otherPlayer, $("#display-3"));
 			break;
 		default:
-			mainDisplay(player, otherPlayer, $("#bottom-right"));
+			mainDisplay(player, otherPlayer, $("#display-3"));
 	};
 });
 
