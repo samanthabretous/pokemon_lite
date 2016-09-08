@@ -40,10 +40,11 @@ function mainDisplay(player, otherPlayer , $clicker) {
 	}
 	displaying = "mainMenu";
 	switchPlayers();
+
 	$("#display-0").html("FIGHT");
 	$("#display-1").html("PACK");
 	$("#display-2").html("RUN");
-	$("#display-3").html("COOL");
+	$("#display-3").html("POKEMON");
 };
 
 function packDisplay (player){

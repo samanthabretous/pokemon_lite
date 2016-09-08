@@ -26,7 +26,7 @@ gulp.task('scripts', function(){
     .pipe(rename({suffix:'.min'}))
     .pipe(uglify())
     .pipe(gulp.dest('app/js'))
-    .pipe(reload({stream:true}));
+    //.pipe(reload({stream:true}));
 })
 
 // //////////////////////////
@@ -116,4 +116,4 @@ gulp.task('watch', function(){
 // //////////////////////////
 // Default Task
 // //////////////////////////
-gulp.task('default', ['scripts', 'compass', 'html', 'browser-sync', 'watch'])
+gulp.task('default', ['compass', 'browser-sync', 'watch'])
