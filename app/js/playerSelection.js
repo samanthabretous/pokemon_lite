@@ -25,8 +25,8 @@ function displayPokemonCards (player) {
 }
 
 $('.startBattle').hide();
-var Player1 = new Player();
-var Player2 = new Player();
+var Player1 = new Player("Player 1");
+var Player2 = new Player("Player 2");
 
 
 //player one Cards
@@ -56,8 +56,6 @@ function playerOneSelectCard() {
     //remove the pokemonObj from the pokemonArray
     Player1.pokemon.push(pokemonArray[foundObj[1]]);
     pokemonArray.splice(foundObj[1],1);
-
-    console.log("1:", Player1);
     
     playerTwoSelectCard();
   })// card Click
@@ -95,7 +93,6 @@ function playerTwoSelectCard() {
     
     //toggle back and forth between the two player until both of them have 5 pokemon
     if(Player1.pokemon.length < 5){
-      console.log("2: ", Player2)
       playerOneSelectCard()
     } else {
       $('.startBattle').show();

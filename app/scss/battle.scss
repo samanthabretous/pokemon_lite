@@ -349,26 +349,28 @@ body{
       }
       .options{
         height: $optionHeight + 10px;
-        width: $width*.6;
+        width: $width*.65;
         border: 8px double;
         border-radius: 25px;
         background: $aged;
         position: absolute;
         right: -7px;
         top: -15px;
-        padding: 20px;
+        padding: 10px;
         display: flex;
         flex-wrap:wrap;
         justify-content: space-around;
         
-          h6{
-            margin: 10px 0 0 20px;
-            padding: 0;
-            font-size: 1.75rem;
-            display: inline;
+          div{
+            width: 205px;
 
+            h6{
+              padding: 0;
+              font-size: 1.5rem;
+              display: inline;
+
+            }
           }
-
 
       }//.options
     }//.mainOptions

@@ -1,6 +1,5 @@
 //switch the screen from card selection to battle screen
 $('.startBattle').click(function (){
-  debugger;
   $('.characterSelection').addClass("hide");
   $('.battleScreen').removeClass("hide");
   displayPlayers(Player1);

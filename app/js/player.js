@@ -1,3 +1,4 @@
-function Player (pokemonObj){
+function Player (playerName){
+  this.name = playerName;
   this.pokemon = [];
 }
