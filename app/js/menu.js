@@ -43,7 +43,7 @@ function mainDisplay(player, otherPlayer , $clicker) {
 	$("#top-left").html("FIGHT");
 	$("#top-right").html("PACK");
 	$("#bottom-left").html("RUN");
-	$("#bottom-right").html("COOL");
+	$("#bottom-right").html("POKEMON");
 };
 
 function packDisplay (player){

@@ -87,7 +87,6 @@ function playerTwoSelectCard() {
     var clickedPokemon = this;
     var foundObj = findInArray(clickedPokemon);
 
-    Player2 = new Player(foundObj[0])
     // //remove the pokemonObj from the pokemonArray
     Player2.pokemon.push(foundObj[0])
     pokemonArray.splice(foundObj[1],1)
@@ -96,43 +95,11 @@ function playerTwoSelectCard() {
     
     //toggle back and forth between the two player until both of them have 5 pokemon
     if(Player1.pokemon.length < 5){
+      console.log("2: ", Player2)
       playerOneSelectCard()
     } else {
       $('.startBattle').show();
-      
-      //pokemon slide in for battle
-      $('.playerOne').animate({
-        left: "-=700",
-      }, 2500);
-      $('.playerTwo').animate({
-        left: "+=700",
-      }, 2500);
     }
 
   })// card Click
 }
-
-
-
-//switch the screen from card selection to battle screen
-$('.startBattle').click(function (){
-  $('.characterSelection').addClass("hide");
-  $('.battleScreen').removeClass("hide");
-  displayPlayers(Player1);
-  displayPlayers(Player2);
-  $('.playerOne').animate("")
-})
-
-
-// display on battle screen the infomation about player 1 and tow
-function displayPlayers(player){
-  var num;
-  player == Player1 ? num = "One" : num = "Two"
-  
-  $('.player' + num + 'Name').text(player.pokemon.name);
-  $('.status' + num + ' p span').text(player.pokemon.magic.maxMagic);
-  $(".player" + num + "Img > img").attr("src", player[pokemon].image);
-  //$(".playerTwoImg > img").attr("src", Player2.pokemon.image);
-
-}
-playerOneSelectCard();

@@ -20,14 +20,14 @@ var gulp    = require ('gulp'),
 // Scripts Task
 // //////////////////////////
 
-gulp.task('scripts', function(){
-  gulp.src(['app/js/**/*.js', '!app/js/**/*.min.js'])
-    .pipe(plumber())
-    .pipe(rename({suffix:'.min'}))
-    .pipe(uglify())
-    .pipe(gulp.dest('app/js'))
-    .pipe(reload({stream:true}));
-})
+// gulp.task('scripts', function(){
+//   gulp.src(['app/js/**/*.js', '!app/js/**/*.min.js'])
+//     .pipe(plumber())
+//     .pipe(rename({suffix:'.min'}))
+//     .pipe(uglify())
+//     .pipe(gulp.dest('app/js'))
+//     //.pipe(reload({stream:true}));
+// })
 
 // //////////////////////////
 // Compass/ sass Task
@@ -116,4 +116,4 @@ gulp.task('watch', function(){
 // //////////////////////////
 // Default Task
 // //////////////////////////
-gulp.task('default', ['scripts', 'compass', 'html', 'browser-sync', 'watch'])
+gulp.task('default', ['compass', 'browser-sync', 'watch'])
