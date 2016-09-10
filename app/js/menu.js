@@ -2,6 +2,7 @@
 
 // keeps track of current player
 var currentPlayer = Player1;
+
 // keeps track of what is being displayed
 var displaying = "mainMenu";
 
@@ -42,8 +43,9 @@ function attackDisplay(player) {
 		$("#display-" + i).html(player.pokemon[0].pokemonSkills[i]);
 	}
 };
-
+//main display takes in current player as player opponent as otherPlayer and a JQ object and $ clicker. the Jq clicker is used to know what was selected and tells the pokemon.attack method what attack to do, all Display functions should follow this interface(NOT A JS TERM BUT IT IS A PROGRAMING TERM) for its peramiters.
 function mainDisplay(player, otherPlayer , $clicker) {
+	// if the screen was attack before should go into the next  if statement 
 	if (displaying == "attack"){
 		if (currentPlayer == Player1){
 			player.pokemon[0].attack($clicker.html(), otherPlayer.pokemon[0]);
@@ -62,7 +64,8 @@ function mainDisplay(player, otherPlayer , $clicker) {
 	$("#display-3").html("POKEMON");
 };
 
-function packDisplay (player){
+// display the stuff in the players pack.
+function packDisplay (player, otherPlayer , $clicker){
 	displaying = "pack";
 	$("#display-0").html("Raspberries");
 	$("#display-1").html("");
@@ -70,7 +73,7 @@ function packDisplay (player){
 	$("#display-3").html("");
 };
 
-function pokemonDisplay (player, otherPlayer, jqselection){
+function pokemonDisplay (player, otherPlayer, $clicker){
 	displaying = pokemonDisplay;
 
 	//show the other pokemon user can choose from
@@ -80,7 +83,7 @@ function pokemonDisplay (player, otherPlayer, jqselection){
 }
 
 
-// switch cases for buttons
+// switch cases for buttons if display-0 is clicked differnt options based on the displaying variable same for all display-x on clicks
 $("#display-0").on('click', function(){
 	var whichPlayer = whoseTurn();
 	switch (displaying){
