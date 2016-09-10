@@ -100,7 +100,7 @@ $("#display-1").on('click', function(){
 	var whichPlayer = whoseTurn()
 	switch (displaying){
 		case "mainMenu" :
-			packDisplay(player);
+			packDisplay(whichPlayer.player);
 			break;
 		default:
 			mainDisplay(whichPlayer.player, whichPlayer.otherPlayer, $("#display-1"));
