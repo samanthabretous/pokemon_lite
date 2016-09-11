@@ -8,42 +8,40 @@ var displaying = "mainMenu";
 //show current player name in player console
 $(".mainOptions > h4").html(currentPlayer.name);
 
-function whoseTurn(){
-	if(currentPlayer == Player1){
-		var player = Player1;
-		var otherPlayer = Player2;
-	}else {
-		var player = Player2;
-		var otherPlayer = Player1;
-	}
-	return {
-		player: player,
-		otherPlayer: otherPlayer
-	}
+
+//check to see who turn it is
+function whoseTurn() {
+  if (currentPlayer == Player1) {
+    var player = Player1;
+    var otherPlayer = Player2;
+  } else {
+    var player = Player2;
+    var otherPlayer = Player1;
+  }
+  return {
+    player: player,
+    otherPlayer: otherPlayer
+  }
 }
 
-
-
 // ability to switch between players
-function switchPlayers(){
-	if (currentPlayer === Player1){
-		currentPlayer = Player2;
-	}else {
-		currentPlayer = Player1;
-	}
-	$(".mainOptions h4").html(currentPlayer.name);
+function switchPlayers() {
+  currentPlayer = currentPlayer === Player1 ? Player2 : Player1;
+  $(".mainOptions h4").html(currentPlayer.name);
 };
 
-// what to display during the attack click
-function attackDisplay(player) {
-	displaying = "attack"
-	//show the first four available attacks
-	for(var i = 0; i < 4; i++){
-		$("#display-" + i).html(player.pokemon[0].pokemonSkills[i]);
-	}
-};
+//// DISPLAY DIFFERENT CONSOLE SCREENS------------
+//// DISPLAY DIFFERENT CONSOLE SCREENS------------
 
 function mainDisplay(player, otherPlayer , $clicker) {
+	// $('.menuOption > h6').removeAttr('class')
+	// var mainMenuOptions = ["FIGHT", "PACK", "RUN", "POKEMON"]
+	// for(var i = 0; i < 4; i++){
+	// 	$('.menuOption > h6')[i].id = 'display-' + i;
+	// 	$('.menuOption > h6')[i].innerText = mainMenuOptions[i];
+	// }
+	console.log(player)
+
 	if (displaying == "attack"){
 		if (currentPlayer == Player1){
 			player.pokemon[0].attack($clicker.html(), otherPlayer.pokemon[0]);
@@ -62,25 +60,97 @@ function mainDisplay(player, otherPlayer , $clicker) {
 	$("#display-3").html("POKEMON");
 };
 
-function packDisplay (player){
-	displaying = "pack";
-	$("#display-0").html("Raspberries");
-	$("#display-1").html("");
-	$("#display-2").html("");
-	$("#display-3").html("");
+// function action() {
+//   switch (displaying) {
+//     case "attack":
+//       doAttack(whichPlayer.player, whichPlayer.otherPlayer, $("#display-0"));
+//       break;
+//     case "pack":
+//       break;
+//     case "run":
+//       break;
+//     case "pokemonDisplay":
+//       break;
+//     default:
+//       mainDisplay();
+//   };
+// }
+
+// what to display during the attack click
+function attackDisplay(player, $clicker) {
+  displaying = "attack"
+    //show the first four available attacks
+  for (var i = 0; i < 4; i++) {
+    $("#display-" + i).html(player.pokemon[0].pokemonSkills[i]);
+  }
 };
 
-function pokemonDisplay (player, otherPlayer, jqselection){
-	displaying = pokemonDisplay;
+function packDisplay(player) {
+  displaying = "pack";
+  $("#display-0").html("Raspberries");
+  $("#display-1").html("");
+  $("#display-2").html("");
+  $("#display-3").html("");
+};
 
-	//show the other pokemon user can choose from
-	for(var i = 0; i < 4; i++){
-		$("#display-" + i).html(player.pokemon[i+1].name);
-	}
+function runDisplay() {
+
 }
 
 
-// switch cases for buttons
+
+function pokemonDisplay(player) {
+  displaying = "pokemonDisplay";
+  console.log(player)
+  function movePokemon(selectedPokemon) {
+  	for (var i = 0; i < player.pokemon.length; i++) {
+  		if(player.pokemon[i].name === selectedPokemon){
+  			var selected = player.pokemon.splice(i,1);
+				player.pokemon.unshift(selected[0])
+  		}
+  	}
+		console.log(player)
+		console.log($('.menuOption > h6'))
+		mainDisplay();
+	}
+
+  //remove the id's that belong to the menu
+  var pokemonMenu = $('.menuOption > h6');
+  pokemonMenu.removeAttr('id');
+
+  for (var i = 0; i < 4; i++) {
+  	pokemonMenu[i].classList.add("poke" + i)
+  }
+
+  //show the other pokemon user can choose from
+  for (var i = 0; i < 4; i++) {
+    $(".poke" + i).text(player.pokemon[i+1].name);
+    $(".poke" + i).click(function(event) {
+    	var selectedPokemon = event.currentTarget.innerText;
+    	movePokemon(selectedPokemon);
+    })
+  }
+
+}
+
+
+//function doAttack(player, otherPlayer, $clicker) { 
+  // if (displaying == "attack") {
+  //   if (currentPlayer == Player1) {
+  //     player.pokemon[0].attack($clicker.html(), otherPlayer.pokemon[0]);
+  //   } else {
+  //     player.pokemon[0].attack($clicker.html(), Player1.pokemon[0]);
+  //   }
+  // } else if (displaying == "pack") {
+  //   player.pokemon[0].getMagic();
+  // }
+  // displaying = "mainMenu";
+  // mainDisplay();
+  // switchPlayers();
+//}
+
+// SWITCH CASES FOR BUTTONS ----------
+// SWITCH CASES FOR BUTTONS ----------
 $("#display-0").on('click', function(){
 	var whichPlayer = whoseTurn();
 	switch (displaying){
@@ -92,50 +162,38 @@ $("#display-0").on('click', function(){
 	};
 });
 
-
-$("#display-1").on('click', function(){
-	var whichPlayer = whoseTurn()
-	switch (displaying){
-		case "mainMenu" :
-			packDisplay(player);
-			break;
-		default:
-			mainDisplay(whichPlayer.player, whichPlayer.otherPlayer, $("#display-1"));
-	};
+function mainButtons(){
+$("#display-1").on('click', function() {
+  var whichPlayer = whoseTurn();
+  switch (displaying) {
+    case "mainMenu":
+      packDisplay(whichPlayer.player);
+      break;
+    default:
+      mainDisplay(whichPlayer.player, whichPlayer.otherPlayer, $("#display-1"));
+  };
 });
 
-$("#display-2").on('click', function(){
-	var whichPlayer = whoseTurn()
-	switch (displaying){
-		case "mainMenu" :
-			mainDisplay(whichPlayer.player, whichPlayer.otherPlayer, $("#display-2"));
-			break;
-		default:
-			mainDisplay(whichPlayer.player, whichPlayer.otherPlayer, $("#display-2"));
-	};
+$("#display-2").on('click', function() {
+  var whichPlayer = whoseTurn();
+  switch (displaying) {
+    case "mainMenu":
+      mainDisplay(whichPlayer.player, whichPlayer.otherPlayer, $("#display-2"));
+      break;
+    default:
+      mainDisplay(whichPlayer.player, whichPlayer.otherPlayer, $("#display-2"));
+  };
 });
 
-$("#display-3").on('click', function(){
-	var whichPlayer = whoseTurn()
-	switch (displaying){
-		case "mainMenu" :
-			pokemonDisplay(whichPlayer.player, whichPlayer.otherPlayer, $("#display-3"));
-			break;
-		default:
-			mainDisplay(whichPlayer.player, whichPlayer.otherPlayer, $("#display-3"));
-	};
+$("#display-3").on('click', function() {
+  var whichPlayer = whoseTurn();
+  switch (displaying) {
+    case "mainMenu":
+      pokemonDisplay(whichPlayer.player);
+      break;
+    default:
+      mainDisplay(whichPlayer.player, whichPlayer.otherPlayer, $("#display-3"));
+  };
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
+mainButtons()
