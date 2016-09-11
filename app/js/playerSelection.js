@@ -92,7 +92,7 @@ function playerTwoSelectCard() {
     $('.playerTwoOptions').hide();
     
     //toggle back and forth between the two player until both of them have 5 pokemon
-    if(Player1.pokemon.length < 2){
+    if(Player1.pokemon.length < 5){
       playerOneSelectCard()
     } else {
       $('.startBattle').show();

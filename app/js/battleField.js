@@ -6,13 +6,16 @@ $('.startBattle').click(function (){
   displayPlayers(Player2);
 
   //pokemon slide in for battle
+  playerSlideIn();
+})
+function playerSlideIn() {
   $('.playerOne').animate({
     left: "-=700",
   }, 2500);
   $('.playerTwo').animate({
     left: "+=700",
   }, 2500);
-})
+}
 
 
 // display on battle screen the infomation about player 1 and tow
