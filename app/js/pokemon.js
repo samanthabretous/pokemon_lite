@@ -32,22 +32,31 @@ Pokemon.prototype.attack = function (skillKey, pokemon) {
 	if(this.magic.currentMagic < this.skills[skillKey].magicNeeded){
 		console.log("not enough Magic!!!!");
 	}else {
+    // debugger;
+   
+
 		pokemon.health.currentHealth -= this.skills[skillKey].damage;
-		this.magic.currentMagic -= this.skills[skillKey].magicNeeded
+    if(pokemon.health.currentHealth < 0){
+    pokemon.health.currentMagic = 0;
+    };
+    // for health/magic Movement fucntions
+    if(currentPlayer.name[currentPlayer.name.length-1] === "1"){
+      var currentPlayerPassthrough = 'One';
+      var OtherPlayerPassthrough = 'Two';
+    }else{
+      var currentPlayerPassthrough = 'Two';
+      var OtherPlayerPassthrough = 'One';
+    };
+    // first perameter must be negative because to lose health otherwise will gain Health
+    healthBarMovement(-(this.skills[skillKey].damage), this.health.maxHealth, OtherPlayerPassthrough);
+    this.magic.currentMagic -= this.skills[skillKey].magicNeeded
+    magicBarMovement(-(this.skills[skillKey].magicNeeded),this.magic.maxMagic,currentPlayerPassthrough)
 		console.log(this.name + " launched skill " + skillKey + " successfully!");
 		console.log(pokemon.name + " received " + this.skills[skillKey].damage +" damage");
 		//pikachu launched skill 'lightning' successfully!
 		//bulbasaur got 40 damage
-		if(pokemon.health.currentHealth < 0){
-		pokemon.health.currentMagic = 0;
-		};
-    var playerPassthrough = "";
-    if(currentPlayer[currentPlayer.length-1] === "1"){
-      playerPassthrough = 'Two';
-    }else{
-      playerPassthrough = 'One';
-    }
-    HealthBarLoss(this.skills[skillKey].damage, this.health.maxHealth, playerPassthrough);
+		
+    
 	}
 };
 
@@ -61,11 +70,31 @@ Pokemon.prototype.showStatus = function(){
 Pokemon.prototype.getMagic = function() {
   //10% of max magic
   //current magic can never go above max magic
-  var addMagic = Math.round(this.magic.maxMagic * .10) 
-  var updatedMagic = 0;
-   this.magic.currentMagic += addMagic
-    if(this.magic.currentMagic > this.magic.maxMagic){
-      this.magic.currentMagic = this.magic.maxMagic
-    }
+   
+
+    var addMagic = Math.round(this.magic.maxMagic * .10);
+  if(this.magic.currentMagic + addMagic < this.magic.maxMagic){
+    this.magic.currentMagic += addMagic;
+
+    // for health/magic Movement fucntions
+    if(currentPlayer.name[currentPlayer.name.length-1] === "1"){
+      var currentPlayerPassthrough = 'One';
+    }else{
+      var currentPlayerPassthrough = 'Two';
+    };
+    magicBarMovement(addMagic ,this.magic.maxMagic,currentPlayerPassthrough);
+  }else if(this.magic.currentMagic < this.magic.maxMagic) {  
+    var addMagic = this.magic.maxMagic - this.magic.currentMagic;
+    this.magic.currentMagic = this.magic.maxMagic;
+
+    // for health/magic Movement fucntions
+    if(currentPlayer.name[currentPlayer.name.length-1] === "1"){
+      var currentPlayerPassthrough = 'One';
+    }else{
+      var currentPlayerPassthrough = 'Two';
+    };
+    magicBarMovement(addMagic ,this.magic.maxMagic,currentPlayerPassthrough);
+  };
+
   console.log("current", this.magic.currentMagic);
 }
