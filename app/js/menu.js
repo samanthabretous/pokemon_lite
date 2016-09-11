@@ -53,24 +53,57 @@ function switchPlayers() {
 // };
 
 //main display takes in current player as player, opponent as otherPlayer, and a jQuery object as $clicker. the jQuery clicker is used to know what was selected and tells the pokemon.attack method what attack to do, all Display functions should follow this interface(NOT A JS TERM BUT IT IS A PROGRAMING TERM) for its peramiters.
-function mainDisplay(player, otherPlayer , $clicker) {
+function menuOptions(player, otherPlayer , $clicker) {
+
+
+  function mainDisplay() {
+    displaying = "mainMenu";
+    $("#display-0").html("FIGHT");
+    $("#display-1").html("PACK");
+    $("#display-2").html("RUN");
+    $("#display-3").html("POKEMON");
+  }
+
 	// if the screen was attack before should go into the next  if statement 
-	if (displaying == "attack"){
-		if (currentPlayer == Player1){
-			player.pokemon[0].attack($clicker.html(), otherPlayer.pokemon[0]);
-		}else {
-			player.pokemon[0].attack($clicker.html(), Player1.pokemon[0]);
-		}
-	}else if(displaying == "pack"){
-		player.pokemon[0].getMagic();
-	}
-	displaying = "mainMenu";
+  switch (displaying){
+    case "attack":
+      attackPlayer();
+      break;
+    case "pack":
+      player.pokemon[0].getMagic();
+      mainDisplay();
+      break;
+    case "pokemonDisplay":
+      switchPokemon();
+      displayPlayers(player);
+      break;
+    default:
+      mainDisplay();
+  }
+	
+  function attackPlayer(){
+    if (currentPlayer == Player1){
+      player.pokemon[0].attack($clicker.html(), otherPlayer.pokemon[0]);
+    }else {
+      player.pokemon[0].attack($clicker.html(), Player1.pokemon[0]);
+    }
+
+    mainDisplay();
+  }
+
+  function switchPokemon() {
+    for (var i = 0; i < player.pokemon.length; i++) {
+      if(player.pokemon[i].name === $clicker.text()){
+        var selected = player.pokemon.splice(i,1);
+        player.pokemon.unshift(selected[0])
+      }
+    }
+    mainDisplay();
+  }
+
+
 	switchPlayers();
 
-	$("#display-0").html("FIGHT");
-	$("#display-1").html("PACK");
-	$("#display-2").html("RUN");
-	$("#display-3").html("POKEMON");
 };
 
 
@@ -96,56 +129,17 @@ function packDisplay(player) {
 function runDisplay() {
 }
 
-// display the pokemons
+
 function pokemonDisplay(player) {
   displaying = "pokemonDisplay";
-  console.log(player)
-  function movePokemon(selectedPokemon) {
-  	for (var i = 0; i < player.pokemon.length; i++) {
-  		if(player.pokemon[i].name === selectedPokemon){
-  			var selected = player.pokemon.splice(i,1);
-				player.pokemon.unshift(selected[0])
-  		}
-  	}
-		console.log(player)
-		console.log($('.menuOption > h6'))
-		mainDisplay();
-	}
-
-  //remove the id's that belong to the menu
-  var pokemonMenu = $('.menuOption > h6');
-  pokemonMenu.removeAttr('id');
-
-  for (var i = 0; i < 4; i++) {
-  	pokemonMenu[i].classList.add("poke" + i)
-  }
 
   //show the other pokemon user can choose from
   for (var i = 0; i < 4; i++) {
-    $(".poke" + i).text(player.pokemon[i+1].name);
-    $(".poke" + i).click(function(event) {
-    	var selectedPokemon = event.currentTarget.innerText;
-    	movePokemon(selectedPokemon);
-    })
+    $("#display-" + i).html(player.pokemon[i+1].name);
   }
-
 }
 
 
-//function doAttack(player, otherPlayer, $clicker) { 
-  // if (displaying == "attack") {
-  //   if (currentPlayer == Player1) {
-  //     player.pokemon[0].attack($clicker.html(), otherPlayer.pokemon[0]);
-  //   } else {
-  //     player.pokemon[0].attack($clicker.html(), Player1.pokemon[0]);
-  //   }
-  // } else if (displaying == "pack") {
-  //   player.pokemon[0].getMagic();
-  // }
-  // displaying = "mainMenu";
-  // mainDisplay();
-  // switchPlayers();
-//}
 
 // SWITCH CASES FOR BUTTONS ----------
 // SWITCH CASES FOR BUTTONS ----------
@@ -158,7 +152,7 @@ $("#display-0").on('click', function(){
 			attackDisplay(whichPlayer.player);
 			break;
 		default:
-			mainDisplay(whichPlayer.player, whichPlayer.otherPlayer ,$("#display-0"));
+			menuOptions(whichPlayer.player, whichPlayer.otherPlayer ,$("#display-0"));
 	};
 });
 
@@ -169,7 +163,7 @@ $("#display-1").on('click', function() {
       packDisplay(whichPlayer.player);
       break;
     default:
-      mainDisplay(whichPlayer.player, whichPlayer.otherPlayer, $("#display-1"));
+      menuOptions(whichPlayer.player, whichPlayer.otherPlayer, $("#display-1"));
   };
 });
 
@@ -177,10 +171,10 @@ $("#display-2").on('click', function() {
   var whichPlayer = whoseTurn();
   switch (displaying) {
     case "mainMenu":
-      mainDisplay(whichPlayer.player, whichPlayer.otherPlayer, $("#display-2"));
+      runDisplay();
       break;
     default:
-      mainDisplay(whichPlayer.player, whichPlayer.otherPlayer, $("#display-2"));
+      menuOptions(whichPlayer.player, whichPlayer.otherPlayer, $("#display-2"));
   };
 });
 
@@ -191,6 +185,6 @@ $("#display-3").on('click', function() {
       pokemonDisplay(whichPlayer.player);
       break;
     default:
-      mainDisplay(whichPlayer.player, whichPlayer.otherPlayer, $("#display-3"));
+      menuOptions(whichPlayer.player, whichPlayer.otherPlayer, $("#display-3"));
   };
 });
