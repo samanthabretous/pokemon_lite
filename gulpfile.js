@@ -12,8 +12,8 @@ var gulp    = require ('gulp'),
     plumber = require('gulp-plumber'),
     autoprefixer = require('gulp-autoprefixer'),
     runSequence = require('run-sequence'),
-    del     = require('del'), 
-    fs      = require('fs'),  
+    del     = require('del'),
+    fs      = require('fs'),
     rename  = require('gulp-rename')
 
 // //////////////////////////
@@ -74,7 +74,7 @@ gulp.task('build:copy', ['build:cleanfolder'], function() {
 });
 
 //task to remove unwanted build files
-// list all files and directories here that you do not want to include 
+// list all files and directories here that you do not want to include
 gulp.task('build:remove', ['build:copy'], function(callback) {
   del([
     'build/scss/',
@@ -102,7 +102,7 @@ gulp.task('build:serve', function(){
       baseDir: './build/'
     }
   })
-}); 
+});
 
 // //////////////////////////
 // Watch Task
@@ -111,6 +111,15 @@ gulp.task('watch', function(){
   gulp.watch('app/js/**/*.js',['scripts']);
   gulp.watch('app/scss/**/*.scss', ['compass']);
   gulp.watch('app/**/*.html', ['html'])
+});
+
+// //////////////////////////
+// Deploy Task
+// //////////////////////////
+const ghPages = require('gulp-gh-pages');
+gulp.task('deploy', function() {
+  return gulp.src('./app/**/*')
+    .pipe(ghPages());
 });
 
 // //////////////////////////
