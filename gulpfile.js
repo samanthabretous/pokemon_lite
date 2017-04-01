@@ -14,7 +14,9 @@ var gulp    = require ('gulp'),
     runSequence = require('run-sequence'),
     del     = require('del'),
     fs      = require('fs'),
-    rename  = require('gulp-rename')
+    rename  = require('gulp-rename'),
+    ghPages = require('gulp-gh-pages');
+
 
 // //////////////////////////
 // Scripts Task
@@ -116,7 +118,6 @@ gulp.task('watch', function(){
 // //////////////////////////
 // Deploy Task
 // //////////////////////////
-const ghPages = require('gulp-gh-pages');
 gulp.task('deploy', function() {
   return gulp.src('./app/**/*')
     .pipe(ghPages());

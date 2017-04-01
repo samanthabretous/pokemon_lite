@@ -4,8 +4,8 @@ var pokemonArray = []
 
 // pokemon
 var Pikachu = new Pokemon("Pikachu",100,100, "images/Pikachu.png");
-var Bulbasaur = new Pokemon("Bulbasaur", 150, 150, "images/Pokémon_Bulbasaur_art.png");
-var Charmander = new Pokemon("Charmander", 150 , 200, "images/Pokémon_Charmander_art.png");
+var Bulbasaur = new Pokemon("Bulbasaur", 150, 150, "images/Pokemon_Bulbasaur_art.png");
+var Charmander = new Pokemon("Charmander", 150 , 200, "images/Pokemon_Charmander_art.png");
 var Squirtle =  new Pokemon("Squirtle", 200 , 100, "images/Squirtle.png");
 var Caterpie = new Pokemon("Caterpie", 120 , 200, "images/Caterpie.png");
 var Weedle = new Pokemon("Weedle", 120, 200, "images/Weedle.png");
@@ -103,7 +103,7 @@ Rattata.learnAttackSkill(FocusEnergy);
 
 
 // Spearow abilites
-// Growl 
+// Growl
 var Peck = new AttackSkill("Peck", 20, 30);
 var FuryAttack = new AttackSkill("Fury Attack", 40, 40);
 var Pursuit = new AttackSkill("Pursuit", 35, 35);
@@ -123,7 +123,7 @@ var Acid = new AttackSkill("Acid",50,  70);
 Sandshrew.learnAttackSkill(Growl);
 Sandshrew.learnAttackSkill(Peck);
 Sandshrew.learnAttackSkill(FuryAttack);
-Sandshrew.learnAttackSkill(Pursuit); 
+Sandshrew.learnAttackSkill(Pursuit);
 // Nidoran
 Nidoran.learnAttackSkill(Growl);
 Nidoran.learnAttackSkill(Peck);
@@ -134,7 +134,7 @@ Clefairy.learnAttackSkill(Growl);
 Clefairy.learnAttackSkill(Peck);
 Clefairy.learnAttackSkill(FuryAttack);
 Clefairy.learnAttackSkill(Pursuit);
-// Vulpix = 
+// Vulpix =
 Vulpix.learnAttackSkill(Growl);
 Vulpix.learnAttackSkill(Peck);
 Vulpix.learnAttackSkill(FuryAttack);
@@ -157,7 +157,3 @@ Sandshrew.skillsToArray();
 Nidoran.skillsToArray();
 Clefairy.skillsToArray();
 Vulpix.skillsToArray();
-
-
-
-
