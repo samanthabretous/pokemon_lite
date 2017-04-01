@@ -4,8 +4,8 @@ var pokemonArray = []
 
 // pokemon
 var Pikachu = new Pokemon("Pikachu",100,100, "images/Pikachu.png");
-var Bulbasaur = new Pokemon("Bulbasaur", 150, 150, "images/Pokemon_Bulbasaur_art.png");
-var Charmander = new Pokemon("Charmander", 150 , 200, "images/Pokemon_Charmander_art.png");
+var Bulbasaur = new Pokemon("Bulbasaur", 150, 150, "images/Bulbasaur.png");
+var Charmander = new Pokemon("Charmander", 150 , 200, "images/Charmander.png");
 var Squirtle =  new Pokemon("Squirtle", 200 , 100, "images/Squirtle.png");
 var Caterpie = new Pokemon("Caterpie", 120 , 200, "images/Caterpie.png");
 var Weedle = new Pokemon("Weedle", 120, 200, "images/Weedle.png");
