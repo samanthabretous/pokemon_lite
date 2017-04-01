@@ -38,7 +38,7 @@ body{
 
 
       .playerOneImg{
-       
+
         min-width: $width*.4;
         height: $playerHeight;
 
@@ -57,11 +57,11 @@ body{
       .playerOneInfo{
         width: $statusWidth;
         height: $playerHeight;
-      
+
         .playerOnestatus {
             padding-left: $width*.06;
             height: $playerHeight/2;
-          
+
           .playerOneName{
             margin: 0;
             padding: 10px 0 0 0;
@@ -87,13 +87,13 @@ body{
               transform: rotate(-45deg);
             }
           }
-        }//.playerOnestatus 
+        }//.playerOnestatus
 
         /***********PLAYER ONE STATUS BAR ************/
         /***********PLAYER ONE STATUS BAR ************/
-          
+
         .statusOne{
-          background-image: url('/images/player1_piece.png'); 
+          background-image: url('./images/player1_piece.png');
           background-repeat: no-repeat;
           position: relative;
           width: $width*.6;
@@ -111,19 +111,19 @@ body{
             padding:6px 15px 3px 0px;
             position: relative;
             top: -7px;
-            left: 280px; 
-          
+            left: 280px;
+
           }//.healthPoints
 
           .statusbarOneOuter{
             position: absolute;
             background: $aged;
             width: 250px;
-            height: 15px; 
+            height: 15px;
             top: 5px;
             left: 30px;
             color:yellow;
-            display: inline-block;     
+            display: inline-block;
 
             .statusBarOne{
               background: $red;
@@ -131,9 +131,9 @@ body{
               width: 250px;
               height: 12px;
             }//.statusBarTwo
-          
+
           } //.statusbarTwoOuter
-        
+
           p{
             text-align: right;
             position: relative;
@@ -147,9 +147,9 @@ body{
             position: relative;
             background: $aged;
             width: 270px;
-            height: 15px; 
+            height: 15px;
             bottom: 55px;
-            left:30px;            
+            left:30px;
 
             .statusBarOneBottom{
               position: absolute;
@@ -161,7 +161,7 @@ body{
               height: 9px;
 
             }//.statusBarOneBottom
-          
+
           } //.statusbarOneOuterBottom
 
 
@@ -181,7 +181,7 @@ body{
       left: -700px;
 
       .playerTwoImg{
-       
+
         min-width: $width*.4;
         height: $playerHeight;
 
@@ -199,11 +199,11 @@ body{
       .playerTwoInfo{
         width: $statusWidth;
         height: $playerHeight;
-      
+
         .playerTwostatus {
             padding-left: $width*.06;
             height: $playerHeight/2;
-          
+
           .playerTwoName{
             margin: 0;
           }//.playerTwoName
@@ -226,13 +226,13 @@ body{
               transform: rotate(-45deg);
             }
           }
-        }//.playerTwostatus 
+        }//.playerTwostatus
 
         /***********PLAYER TWO STATUS BAR ************/
         /***********PLAYER TWO STATUS BAR ************/
-          
+
         .statusTwo{
-          background-image: url('/images/player2_piece.png'); 
+          background-image: url('./images/player2_piece.png'); 
           background-repeat: no-repeat;
           position: relative;
           width: $width*.6;
@@ -250,17 +250,17 @@ body{
             padding:6px 15px 3px 4px;
             position: relative;
             top: -7px;
-          
+
           }//.healthPoints
 
           .statusbarTwoOuter{
             position: absolute;
             background: $aged;
             width: 250px;
-            height: 15px; 
+            height: 15px;
             top: 5px;
             color:yellow;
-            display: inline-block;     
+            display: inline-block;
 
             .statusBarTwo{
               background: $red;
@@ -268,9 +268,9 @@ body{
               width: 250px;
               height: 12px;
             }//.statusBarTwo
-          
+
           } //.statusbarTwoOuter
-        
+
           p{
             text-align: right;
             position: relative;
@@ -284,9 +284,9 @@ body{
             position: relative;
             background: $aged;
             width: 270px;
-            height: 15px; 
+            height: 15px;
             bottom: 55px;
-            left:50px;            
+            left:50px;
 
             .statusBarTwoBottom{
               position: absolute;
@@ -298,7 +298,7 @@ body{
               height: 9px;
 
             }//.statusBarTwoBottom
-          
+
           } //.statusbarTwoOuterBottom
 
         } //statusTwo
@@ -308,7 +308,7 @@ body{
 
 /***********Game options************/
 /***********Game options************/
-  
+
   .gameBottom{
     width: $width;
     height: $optionHeight;
@@ -360,7 +360,7 @@ body{
         display: flex;
         flex-wrap:wrap;
         justify-content: space-around;
-        
+
           div{
             width: 205px;
 

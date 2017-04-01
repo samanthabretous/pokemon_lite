@@ -1,14 +1,14 @@
 @font-face {
   font-family: "squaredFont";
-  src: url("/fonts/player_1_up/player1up.ttf");
+  src: url("./fonts/player_1_up/player1up.ttf");
 }
 @font-face {
   font-family: "squaredFontBold";
-  src: url("/fonts/player_1_up/player1upboldital.ttf");
+  src: url("./fonts/player_1_up/player1upboldital.ttf");
 }
 @font-face {
   font-family: "gameboy";
-  src: url("/fonts/jackster-productions_pokemon-gb/Pokemon_GB.ttf");
+  src: url("./fonts/jackster-productions_pokemon-gb/Pokemon_GB.ttf");
 }
 * {
   box-sizing: border-box;
@@ -101,7 +101,7 @@ body {
   transform: rotate(-45deg);
 }
 .mainGame .gameScreen .playerOne .playerOneInfo .statusOne {
-  background-image: url("/images/player1_piece.png");
+  background-image: url("./images/player1_piece.png");
   background-repeat: no-repeat;
   position: relative;
   width: 420px;
@@ -213,7 +213,7 @@ body {
   transform: rotate(-45deg);
 }
 .mainGame .gameScreen .playerTwo .playerTwoInfo .statusTwo {
-  background-image: url("/images/player2_piece.png");
+  background-image: url("./images/player2_piece.png");
   background-repeat: no-repeat;
   position: relative;
   width: 420px;
