@@ -6,7 +6,7 @@ A simplified version of pokemon! Player 1 battles Player 2 for a fight to the de
 Each player takes turns choosing 5 different pokemon. Once completed, press battle to begin. Choose your pokemon and make an attack. Then the other opponent will do the same. Be careful not to get attacked or you can watch your health points get deleted. Play the game until all you have killed all 5 of the opponents pokemon.
 
 ##Live Demo:
-[Play the game](https://samanthabretous.com/pokemon_lite)
+[Play the game](samanthabretous.com/pokemon_lite)
 
 ##Functionality:
 1. A `Pokemon` constructor function creates new pokemon that have name, health , magic and a bunch of skills.
